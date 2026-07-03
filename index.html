@@ -1,0 +1,3007 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONLINEE — Operations Infrastructure for Funded Startups</title>
+  <meta name="description"
+    content="ONLINEE builds and runs the digital infrastructure, customer support, business operations, and staffing that funded startups need to scale — so founders stay focused on the product.">
+  <meta name="keywords"
+    content="business operations outsourcing, digital infrastructure, customer support outsourcing, startup staffing, CRM ERP setup, Bangalore startup services, BPO Bangalore">
+  <meta name="author" content="ONLINEE">
+  <link rel="canonical" href="https://onlinee.in/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ONLINEE — Operations Infrastructure for Funded Startups">
+  <meta property="og:description"
+    content="Digital infrastructure, customer support, business operations, and staffing — run for you, so you can run the product.">
+  <meta property="og:url" content="https://onlinee.in/">
+  <meta property="og:site_name" content="ONLINEE">
+  <meta property="og:locale" content="en_IN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ONLINEE — Operations Infrastructure for Funded Startups">
+  <meta name="twitter:description"
+    content="Digital infrastructure, customer support, business operations, and staffing — run for you, so you can run the product.">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232A3044'/%3E%3Ccircle cx='50' cy='50' r='16' fill='none' stroke='%234B6BFF' stroke-width='6'/%3E%3Ccircle cx='50' cy='16' r='7' fill='%234B6BFF'/%3E%3Ccircle cx='84' cy='50' r='7' fill='%2300C2A8'/%3E%3Ccircle cx='50' cy='84' r='7' fill='%234B6BFF'/%3E%3Ccircle cx='16' cy='50' r='7' fill='%2300C2A8'/%3E%3C/svg%3E">
+  <script
+    type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"ONLINEE","description":"Operations infrastructure partner for funded startups \u2014 digital infrastructure, customer support, business operations, and staffing.","areaServed":{"@type":"City","name":"Bangalore"},"url":"https://onlinee.in/","address":{"@type":"PostalAddress","addressLocality":"Bangalore","addressRegion":"Karnataka","addressCountry":"IN"},"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Digital Infrastructure"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Customer Support"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Business Operations"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Staffing"}}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #E8EAF0;
+      --ink-soft: #9AA0AE;
+      --muted: #6B7280;
+      --bg: #0B0D14;
+      --bg-alt: #11141E;
+      --line: #1E2330;
+      --accent: #4B6BFF;
+      --accent-soft: rgba(75, 107, 255, .12);
+      --teal: #00C2A8;
+      --white: #161A24;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    body {
+      background: var(--bg);
+    }
+
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      z-index: 999;
+      width: 0%;
+      transition: width .1s linear;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .06;
+      background: radial-gradient(ellipse at 20% 20%, var(--accent) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, var(--teal) 0%, transparent 50%), radial-gradient(ellipse at 50% 50%, #7C5CFF 0%, transparent 50%);
+      animation: ambientShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes ambientShift {
+      0% {
+        opacity: .04;
+        transform: scale(1) rotate(0deg);
+      }
+
+      50% {
+        opacity: .08;
+        transform: scale(1.05) rotate(1deg);
+      }
+
+      100% {
+        opacity: .04;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    @media(max-width:768px) {
+      .ambient-glow {
+        opacity: .04;
+      }
+    }
+
+    #network-bg {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .35;
+    }
+
+    header {
+      background: transparent !important;
+      border-bottom-color: transparent !important;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--ink);
+    }
+
+    .btn-primary:hover {
+      background: #5A77FF;
+      box-shadow: 0 6px 24px rgba(75, 107, 255, .35);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, .04);
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--ink);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .service-card {
+      background: var(--white);
+    }
+
+    .service-card::after {
+      background: linear-gradient(135deg, rgba(75, 107, 255, .04), rgba(0, 194, 168, .04));
+    }
+
+    .service-card:hover {
+      box-shadow: 0 12px 48px rgba(0, 0, 0, .3);
+    }
+
+    .service-visual {
+      background: var(--bg);
+    }
+
+    .service-visual svg *[fill="#FFFFFF"] {
+      fill: var(--white);
+    }
+
+    .service-visual svg *[fill="#F4F5F7"] {
+      fill: var(--bg-alt);
+    }
+
+    .service-visual svg *[fill="#EDEEF2"] {
+      fill: var(--line);
+    }
+
+    .service-visual svg *[stroke="#E4E6EA"] {
+      stroke: var(--line);
+    }
+
+    .form-card {
+      background: rgba(22, 26, 36, .85);
+      backdrop-filter: blur(16px);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bg);
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      box-shadow: 0 0 0 3px rgba(75, 107, 255, .2);
+    }
+
+    .stat-card {
+      background: var(--white);
+    }
+
+    .principle {
+      border-top-color: var(--line);
+    }
+
+    .principle:hover {
+      border-top-color: var(--accent);
+    }
+
+    .process-step {
+      border-right-color: var(--line);
+    }
+
+    .process-step .step-icon {
+      background: rgba(75, 107, 255, .12);
+      color: var(--accent);
+    }
+
+    .process-step:hover .step-icon {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+
+    .diagram-frame {
+      background: rgba(22, 26, 36, .6);
+      backdrop-filter: blur(16px);
+      border-color: var(--line);
+    }
+
+    .diagram-caption {
+      background: var(--bg-alt);
+      border-color: var(--line);
+    }
+
+    .cc-badge {
+      background: var(--bg);
+      border-color: var(--line);
+    }
+
+    .diagram-dots button.is-on {
+      background: var(--ink);
+    }
+
+    #hero-diagram text {
+      fill: var(--ink);
+    }
+
+    #hero-diagram .node-label {
+      fill: var(--ink-soft);
+    }
+
+    #hero-diagram .core-label {
+      fill: var(--ink);
+    }
+
+    #hero-diagram .core-ring {
+      stroke: var(--line);
+    }
+
+    #hero-diagram circle[fill="#FFFFFF"] {
+      fill: var(--white);
+    }
+
+    #hero-diagram circle[fill="#EEF0FF"] {
+      fill: rgba(75, 107, 255, .15);
+    }
+
+    #hero-diagram circle[fill="#E6FBF7"] {
+      fill: rgba(0, 194, 168, .12);
+    }
+
+    #hero-diagram circle[stroke="#14171F"] {
+      stroke: var(--ink);
+    }
+
+    #hero-diagram .diagram-line {
+      stroke: var(--line);
+    }
+
+    .roadmap-row:hover h3 {
+      color: var(--teal);
+    }
+
+    .roadmap-row::before {
+      background: var(--teal);
+    }
+
+    .cta-section {
+      background: rgba(75, 107, 255, .06);
+      border-color: var(--line);
+    }
+
+    .cta-inner h2 {
+      -webkit-text-fill-color: initial;
+      color: var(--ink);
+      background: none;
+    }
+
+    .footer-col a {
+      color: var(--ink-soft);
+    }
+
+    .section-head p {
+      color: var(--ink-soft);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 1px;
+      display: inline-block;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: -.01em;
+      color: var(--ink);
+    }
+
+    .float-shape {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .25;
+      mix-blend-mode: screen;
+    }
+
+    .float-shape--1 {
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, #4B6BFF 0%, transparent 70%);
+      top: -180px;
+      right: -120px;
+      animation: floatA 18s ease-in-out infinite;
+    }
+
+    .float-shape--2 {
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, #00C2A8 0%, transparent 70%);
+      bottom: -100px;
+      left: -80px;
+      animation: floatB 22s ease-in-out infinite;
+    }
+
+    .float-shape--3 {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, #4B6BFF 0%, transparent 70%);
+      top: 40%;
+      left: 60%;
+      animation: floatC 14s ease-in-out infinite;
+    }
+
+    .float-shape--4 {
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, #00C2A8 0%, transparent 70%);
+      bottom: 10%;
+      right: 5%;
+      animation: floatB 20s ease-in-out infinite reverse;
+    }
+
+    .float-shape--5 {
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(200, 210, 255, .15);
+      border-radius: 24px;
+      transform: rotate(45deg);
+      top: 20%;
+      left: -60px;
+      animation: floatC 16s ease-in-out infinite;
+    }
+
+    @keyframes floatA {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      33% {
+        transform: translate(30px, -40px) scale(1.08);
+      }
+
+      66% {
+        transform: translate(-20px, 20px) scale(.95);
+      }
+    }
+
+    @keyframes floatB {
+
+      0%,
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      25% {
+        transform: translate(40px, 30px) rotate(5deg);
+      }
+
+      75% {
+        transform: translate(-30px, -20px) rotate(-3deg);
+      }
+    }
+
+    @keyframes floatC {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(-40px, 40px) scale(1.12);
+      }
+    }
+
+    .bg-mesh {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bg-mesh::before,
+    .bg-mesh::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: .18;
+    }
+
+    .bg-mesh::before {
+      width: 600px;
+      height: 600px;
+      background: var(--accent);
+      top: -200px;
+      right: -100px;
+      animation: meshDrift 20s ease-in-out infinite;
+    }
+
+    .bg-mesh::after {
+      width: 500px;
+      height: 500px;
+      background: var(--teal);
+      bottom: -150px;
+      left: -100px;
+      animation: meshDrift 25s ease-in-out infinite reverse;
+    }
+
+    @keyframes meshDrift {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(60px, -40px);
+      }
+    }
+
+    .particle-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .06;
+      background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 0);
+      background-size: 40px 40px;
+    }
+
+    .particle-grid--animated {
+      animation: gridDrift 60s linear infinite;
+    }
+
+    @keyframes gridDrift {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(40px, 40px);
+      }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: transparent;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: box-shadow .3s ease;
+    }
+
+    header.is-scrolled {
+      background: rgba(11, 13, 20, .6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: var(--line);
+    }
+
+    nav.wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: -.01em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity .2s ease;
+    }
+
+    .logo:hover {
+      opacity: .7;
+    }
+
+    .logo-mark {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--ink-soft);
+    }
+
+    .nav-links a {
+      position: relative;
+      transition: color .15s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent);
+      transition: width .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 14.5px;
+      padding: 11px 20px;
+      border-radius: 8px;
+      transition: all .2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--ink);
+    }
+
+    .btn-primary:hover {
+      background: #5A77FF;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(75, 107, 255, .25);
+    }
+
+    .btn-ghost {
+      color: var(--ink);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--ink);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(20, 23, 31, .06);
+    }
+
+    .btn-sm {
+      padding: 9px 16px;
+      font-size: 13.5px;
+    }
+
+    .btn-talk {
+      background: linear-gradient(135deg, #4B6BFF, #7C5CFF);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 20px rgba(75, 107, 255, .3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-talk::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #5A77FF, #8C6CFF);
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .btn-talk:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(75, 107, 255, .5);
+    }
+
+    .btn-talk:hover::before {
+      opacity: 1;
+    }
+
+    .btn-talk:active {
+      transform: translateY(0);
+    }
+
+    .btn-talk span,
+    .btn-talk svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media(max-width:860px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    .hero {
+      padding: 96px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    @media(max-width:960px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 4.6vw, 56px);
+      line-height: 1.06;
+      margin: 20px 0 22px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent), #7C5CFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p.lede {
+      font-size: 18px;
+      color: var(--ink-soft);
+      max-width: 480px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .hero-note {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .trust-row {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+
+    .trust-row span {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .trust-row span::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      background: var(--teal);
+      border-radius: 50%;
+    }
+
+    .diagram-frame {
+      background: rgba(22, 26, 36, .6);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 40px rgba(20, 23, 31, .04);
+      transition: box-shadow .3s ease, transform .3s ease;
+    }
+
+    .diagram-frame:hover {
+      box-shadow: 0 12px 50px rgba(20, 23, 31, .08);
+    }
+
+    .diagram-frame .cap {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+    }
+
+    #hero-diagram {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1/1;
+    }
+
+    .node-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      fill: var(--ink-soft);
+      transition: fill .2s ease;
+    }
+
+    .core-label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      fill: var(--ink);
+    }
+
+    .diagram-line {
+      stroke: var(--line);
+      stroke-width: 1.5;
+      fill: none;
+      transition: stroke .25s ease, stroke-width .25s ease;
+    }
+
+    .diagram-line.active {
+      stroke: var(--accent);
+      stroke-dasharray: 240;
+      stroke-dashoffset: 240;
+      animation: draw 1.4s ease forwards;
+    }
+
+    .diagram-line.active.d2 {
+      animation-delay: .15s;
+      stroke: var(--teal);
+    }
+
+    .diagram-line.active.d3 {
+      animation-delay: .3s;
+    }
+
+    .diagram-line.active.d4 {
+      animation-delay: .45s;
+      stroke: var(--teal);
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .diagram-line.highlight {
+      stroke: var(--ink) !important;
+      stroke-width: 2.5;
+    }
+
+    .flow-dot {
+      filter: drop-shadow(0 0 3px rgba(59, 91, 255, .6));
+    }
+
+    .core-pulse {
+      animation: pulse 3s ease-in-out infinite;
+      transform-origin: 180px 180px;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .core-ring {
+      animation: ringspin 22s linear infinite;
+      transform-origin: 180px 180px;
+    }
+
+    @keyframes ringspin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .node {
+      cursor: pointer;
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    .node:hover,
+    .node:focus-visible,
+    .node.is-active {
+      transform: scale(1.1);
+      outline: none;
+    }
+
+    .node:hover .node-circle,
+    .node:focus-visible .node-circle,
+    .node.is-active .node-circle {
+      stroke-width: 2.5;
+    }
+
+    .node:hover .node-label,
+    .node:focus-visible .node-label,
+    .node.is-active .node-label {
+      fill: var(--ink);
+    }
+
+    .node-circle {
+      transition: stroke-width .2s ease, filter .2s ease;
+    }
+
+    .node.is-active .node-circle,
+    .node:hover .node-circle {
+      filter: drop-shadow(0 4px 10px rgba(20, 23, 31, .12));
+    }
+
+    .node-icon {
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .diagram-caption {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: var(--bg-alt);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      min-height: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .diagram-caption::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--dot-color, var(--accent));
+      transition: background .3s ease;
+    }
+
+    .cc-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--dot-color, var(--accent));
+      transition: color .25s ease, transform .3s ease;
+    }
+
+    .cc-badge svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .cc-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cc-body .cc-title,
+    .cc-body .cc-desc {
+      animation: fadeSlide .35s ease;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .diagram-caption .cc-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .diagram-caption .cc-desc {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.48;
+    }
+
+    .diagram-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .diagram-dots button {
+      width: 20px;
+      height: 6px;
+      border-radius: 100px;
+      border: none;
+      background: var(--line);
+      cursor: pointer;
+      padding: 0;
+      transition: background .25s ease, width .25s ease;
+    }
+
+    .diagram-dots button.is-on {
+      background: var(--ink);
+      width: 28px;
+    }
+
+    .diagram-dots button:hover {
+      background: var(--muted);
+    }
+
+    .diagram-hint {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    section {
+      padding: 88px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-head {
+      max-width: 600px;
+      margin-bottom: 52px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(26px, 3vw, 36px);
+      margin-top: 14px;
+      line-height: 1.15;
+    }
+
+    .section-head p {
+      color: var(--ink-soft);
+      font-size: 16px;
+      margin-top: 14px;
+    }
+
+    .services {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    @media(max-width:760px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 36px 34px;
+      transition: all .35s ease;
+      position: relative;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--teal), var(--accent));
+      background-size: 200% 100%;
+      opacity: 0;
+      transition: opacity .3s ease;
+      z-index: 2;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+      animation: shimmer 2s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: 200% 0;
+      }
+
+      100% {
+        background-position: -200% 0;
+      }
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(75, 107, 255, .02), rgba(0, 194, 168, .02));
+      opacity: 0;
+      transition: opacity .35s ease;
+      pointer-events: none;
+    }
+
+    .service-card:hover::after {
+      opacity: 1;
+    }
+
+    .service-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, .3);
+    }
+
+    .service-visual {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      height: 112px;
+      margin-bottom: 24px;
+      padding: 6px;
+      overflow: hidden;
+      transition: box-shadow .3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card:hover .service-visual {
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
+
+    .service-visual svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .service-card .num {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 18px;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card p {
+      color: var(--ink-soft);
+      font-size: 15px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card ul {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card li {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--muted);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .service-card li::before {
+      content: "\2014";
+      color: var(--line);
+      flex-shrink: 0;
+    }
+
+    #how {
+      position: relative;
+    }
+
+    .process-diagram-wrap {
+      margin-top: 24px;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    #process-diagram {
+      width: 100%;
+      height: auto;
+      max-height: 260px;
+    }
+
+    .process-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    @media(max-width:760px) {
+      .process-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .process-step {
+      padding: 32px 28px 32px 0;
+      border-right: 1px solid var(--line);
+      transition: all .3s ease;
+      position: relative;
+    }
+
+    .process-step:hover {
+      padding-left: 16px;
+      border-right-color: var(--accent);
+    }
+
+    .process-step:last-child {
+      border-right: none;
+    }
+
+    @media(max-width:760px) {
+      .process-step {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding: 28px 0;
+      }
+
+      .process-step:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .process-step .step-tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      transition: color .3s ease;
+    }
+
+    .process-step:hover .step-tag {
+      color: var(--accent);
+    }
+
+    .process-step h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .process-step p {
+      color: var(--ink-soft);
+      font-size: 14.5px;
+    }
+
+    .step-icon {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(75, 107, 255, .12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      color: var(--accent);
+      transition: all .3s ease;
+    }
+
+    .process-step:hover .step-icon {
+      background: var(--accent);
+      color: var(--bg);
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px rgba(59, 91, 255, .2);
+    }
+
+    .step-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .step-icon::after {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: inherit;
+      border: 1.5px solid transparent;
+      background: linear-gradient(135deg, var(--accent), var(--teal)) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .process-step:hover .step-icon::after {
+      opacity: 1;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .roadmap {
+      background: #080A12;
+      color: #C8CCD6;
+      position: relative;
+    }
+
+    .roadmap .eyebrow {
+      color: var(--teal);
+    }
+
+    .roadmap .eyebrow::before {
+      background: var(--teal);
+    }
+
+    .roadmap .section-head h2 {
+      color: #E8EAF0;
+    }
+
+    .roadmap .section-head p {
+      color: #7A7F8F;
+    }
+
+    .roadmap-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid #1A1F2E;
+    }
+
+    .roadmap-row {
+      display: grid;
+      grid-template-columns: 220px 1fr 140px;
+      gap: 24px;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid #1A1F2E;
+      transition: all .3s ease;
+      position: relative;
+    }
+
+    .roadmap-row::before {
+      content: "";
+      position: absolute;
+      left: -24px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--teal);
+      transform: scaleY(0);
+      transition: transform .3s ease;
+    }
+
+    .roadmap-row:hover::before {
+      transform: scaleY(1);
+    }
+
+    .roadmap-row:hover {
+      padding-left: 12px;
+    }
+
+    @media(max-width:760px) {
+      .roadmap-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .roadmap-row:hover {
+        padding-left: 0;
+      }
+
+      .roadmap-row::before {
+        display: none;
+      }
+    }
+
+    .roadmap-row h3 {
+      color: #E8EAF0;
+      font-size: 17px;
+      font-weight: 600;
+      transition: color .3s ease;
+    }
+
+    .roadmap-row:hover h3 {
+      color: var(--teal);
+    }
+
+    .roadmap-row p {
+      color: #7A7F8F;
+      font-size: 14px;
+    }
+
+    .badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: #7A7F8F;
+      border: 1px solid #2A3044;
+      padding: 6px 12px;
+      border-radius: 100px;
+      width: fit-content;
+      justify-self: end;
+      transition: all .3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse-dot 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        opacity: .4;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.3);
+      }
+    }
+
+    .roadmap-row:hover .badge {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .roadmap-row:hover .badge::before {
+      background: var(--teal);
+    }
+
+    @media(max-width:760px) {
+      .badge {
+        justify-self: start;
+      }
+    }
+
+    #principles {
+      position: relative;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    @media(max-width:760px) {
+      .principles-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .principle {
+      padding-top: 20px;
+      border-top: 2px solid var(--line);
+      transition: all .3s ease;
+      position: relative;
+    }
+
+    .principle:hover {
+      border-top-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .principle .p-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      transition: color .3s ease;
+    }
+
+    .principle:hover .p-num {
+      color: var(--accent);
+    }
+
+    .principle h3 {
+      font-size: 18px;
+      margin: 10px 0 8px;
+    }
+
+    .principle p {
+      color: var(--ink-soft);
+      font-size: 14.5px;
+    }
+
+    .cta-section {
+      background: rgba(75, 107, 255, .06);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .cta-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .cta-inner h2 {
+      font-size: clamp(24px, 3vw, 32px);
+      max-width: 480px;
+      background: none;
+      color: var(--ink);
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media(max-width:760px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-info p {
+      color: var(--ink-soft);
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 14.5px;
+      color: var(--ink-soft);
+    }
+
+    .contact-detail svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    .contact-detail a {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .contact-detail a:hover {
+      text-decoration: underline;
+    }
+
+    .form-card {
+      background: rgba(22, 26, 36, .85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 8px 30px rgba(20, 23, 31, .04);
+      transition: box-shadow .3s ease;
+    }
+
+    .form-card:hover {
+      box-shadow: 0 12px 40px rgba(20, 23, 31, .08);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--ink);
+      background: var(--bg);
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(75, 107, 255, .2);
+      transform: translateY(-1px);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media(max-width:480px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .form-note {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .form-success.is-visible {
+      display: block;
+    }
+
+    .form-success svg {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      color: var(--teal);
+    }
+
+    .form-success h3 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .form-success p {
+      color: var(--ink-soft);
+      font-size: 15px;
+    }
+
+    footer {
+      padding: 64px 0 40px;
+      position: relative;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    @media(max-width:760px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .footer-brand .logo {
+      margin-bottom: 14px;
+    }
+
+    .footer-brand p {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .footer-col a {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      transition: color .15s ease;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 28px;
+      font-size: 13px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px) scale(0.97);
+      transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .reveal-left.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .reveal-right.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.88);
+      transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .reveal-scale.in {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .reveal-stagger>* {
+      opacity: 0;
+      transform: translateY(24px) scale(0.96);
+      transition: opacity .7s cubic-bezier(.16, 1, .3, 1), transform .7s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .reveal-stagger.in>* {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .reveal-stagger.in>*:nth-child(1) {
+      transition-delay: .06s;
+    }
+
+    .reveal-stagger.in>*:nth-child(2) {
+      transition-delay: .16s;
+    }
+
+    .reveal-stagger.in>*:nth-child(3) {
+      transition-delay: .26s;
+    }
+
+    .reveal-stagger.in>*:nth-child(4) {
+      transition-delay: .36s;
+    }
+
+    .reveal-stagger.in>*:nth-child(5) {
+      transition-delay: .46s;
+    }
+
+    @media(hover:hover) and (pointer:fine) {
+      .cursor-follower {
+        position: fixed;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1.5px solid var(--accent);
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform .12s ease, width .3s ease, height .3s ease, opacity .3s ease;
+        opacity: 0;
+        mix-blend-mode: difference;
+      }
+
+      .cursor-follower.is-visible {
+        opacity: 1;
+      }
+
+      .cursor-follower.is-hovering {
+        width: 52px;
+        height: 52px;
+        border-color: var(--teal);
+      }
+    }
+
+    .parallax-layer {
+      will-change: transform;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+
+    @media(max-width:640px) {
+      .stat-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .stat-card {
+      background: var(--white);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .stat-card .num {
+      font-family: var(--font-display);
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-card .num .accent {
+      color: var(--accent);
+    }
+
+    .stat-card .num .teal {
+      color: var(--teal);
+    }
+
+    .stat-card p {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .process-diagram-mobile {
+      display: none;
+    }
+
+    @media(max-width:768px) {
+      #process-diagram {
+        display: none;
+      }
+
+      .process-diagram-mobile {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 460px;
+      }
+    }
+
+    @media(max-width:768px) {
+      .float-shape {
+        opacity: .12;
+      }
+
+      .float-shape--1 {
+        width: 260px;
+        height: 260px;
+        top: -60px;
+        right: -40px;
+      }
+
+      .float-shape--2 {
+        width: 180px;
+        height: 180px;
+        bottom: -40px;
+        left: -40px;
+      }
+
+      .float-shape--3 {
+        width: 120px;
+        height: 120px;
+      }
+
+      .float-shape--4 {
+        width: 160px;
+        height: 160px;
+      }
+
+      .float-shape--5 {
+        width: 100px;
+        height: 100px;
+      }
+
+      .bg-mesh::before,
+      .bg-mesh::after {
+        filter: blur(50px);
+        opacity: .08;
+      }
+
+      .particle-grid {
+        opacity: .03;
+      }
+
+      #network-bg {
+        opacity: .15;
+      }
+
+      section,
+      .services,
+      .roadmap,
+      .cta-section {
+        background: var(--bg) !important;
+      }
+
+      .roadmap .section-head h2 {
+        color: var(--ink);
+      }
+
+      .roadmap .section-head p {
+        color: var(--ink-soft);
+      }
+
+      .roadmap {
+        background: var(--bg) !important;
+        color: var(--ink);
+      }
+
+      .roadmap-row h3 {
+        color: var(--ink);
+      }
+
+      .roadmap-row p {
+        color: var(--ink-soft);
+      }
+
+      .roadmap-row,
+      .roadmap-list {
+        border-color: var(--line) !important;
+      }
+
+      .badge {
+        border-color: var(--line) !important;
+        color: var(--muted) !important;
+      }
+
+      .process-diagram-wrap {
+        margin-bottom: 24px;
+      }
+
+      .process-step:hover {
+        padding-left: 0;
+      }
+
+      .process-step .step-icon {
+        width: 32px;
+        height: 32px;
+      }
+
+      .process-step .step-icon svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .process-step {
+        padding: 20px 0 24px !important;
+        border-right: none !important;
+      }
+
+      .process-step h3 {
+        font-size: 17px;
+      }
+
+      .process-list {
+        grid-template-columns: 1fr;
+        border-top: none;
+      }
+
+      .cursor-follower {
+        display: none !important;
+      }
+
+      .cta-inner h2 {
+        -webkit-text-fill-color: initial;
+        color: var(--ink);
+        background: none;
+      }
+
+      .hero h1 em {
+        -webkit-text-fill-color: initial;
+        color: var(--accent);
+        background: none;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .hero {
+        padding: 48px 0 40px;
+      }
+
+      .stat-row {
+        margin-bottom: 28px;
+      }
+
+      .diagram-frame {
+        padding: 16px;
+      }
+
+      #hero-diagram {
+        max-height: 300px;
+        aspect-ratio: auto;
+      }
+
+      .section-head {
+        margin-bottom: 28px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(22px, 5vw, 26px);
+      }
+
+      .service-visual {
+        height: 80px;
+      }
+
+      .stat-card {
+        padding: 16px 8px;
+      }
+
+      .stat-card .num {
+        font-size: 24px;
+      }
+
+      .stat-card p {
+        font-size: 10px;
+      }
+
+      .principles-grid {
+        gap: 24px;
+      }
+
+      .principle {
+        padding-top: 14px;
+      }
+
+      .contact-grid {
+        gap: 24px;
+      }
+
+      .form-card {
+        padding: 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding-bottom: 28px;
+      }
+
+      .footer-brand {
+        grid-column: 1/-1;
+      }
+
+      .roadmap-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 16px 0;
+      }
+
+      .badge {
+        font-size: 10px;
+        padding: 4px 10px;
+      }
+
+      .diagram-hint {
+        font-size: 9px;
+      }
+
+      .hero h1 {
+        font-size: clamp(28px, 7vw, 34px);
+      }
+
+      .hero p.lede {
+        font-size: 16px;
+      }
+    }
+
+    @media(max-width:480px) {
+      .service-card {
+        padding: 20px 16px;
+      }
+
+      .service-card h3 {
+        font-size: 18px;
+      }
+
+      .form-card {
+        padding: 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+      }
+
+      .contact-grid {
+        gap: 24px;
+      }
+
+      .hero h1 {
+        font-size: clamp(28px, 7vw, 34px);
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .btn {
+        padding: 10px 16px;
+        font-size: 13px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .form-submit .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cursor-follower" id="cursor-follower" aria-hidden="true"></div>
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <canvas id="network-bg" aria-hidden="true"></canvas>
+
+  <header id="header">
+    <nav class="wrap" aria-label="Primary">
+      <a href="#top" class="logo" aria-label="ONLINEE home">
+        <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true">
+          <rect width="100" height="100" rx="22" fill="#2A3044" />
+          <circle cx="50" cy="50" r="16" fill="none" stroke="#4B6BFF" stroke-width="6" />
+          <circle cx="50" cy="16" r="7" fill="#4B6BFF" />
+          <circle cx="84" cy="50" r="7" fill="#00C2A8" />
+          <circle cx="50" cy="84" r="7" fill="#4B6BFF" />
+          <circle cx="16" cy="50" r="7" fill="#00C2A8" />
+        </svg>
+        Onlinee
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">What we run</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-talk btn-sm">Talk to us</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="bg-mesh" aria-hidden="true"></div>
+      <div class="float-shape float-shape--1" aria-hidden="true"></div>
+      <div class="float-shape float-shape--2" aria-hidden="true"></div>
+      <div class="float-shape float-shape--5" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Operations, Infrastructure, AI Automation </span>
+          <h1>Run the product.<br>We'll run <em>everything else.</em></h1>
+          <p class="lede">Onlinee builds your digital infrastructure, staffs and trains your support team, and takes
+            over the operations that slows down your business — so your team spends its hours on the thing you're
+            actually building.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Book a scoping call</a>
+            <a href="#services" class="btn btn-ghost">See what we run</a>
+          </div>
+        </div>
+        <div class="diagram-frame reveal parallax-layer" data-parallax="0.04">
+          <div class="cap">// operating model — module</div>
+          <svg id="hero-diagram" viewBox="0 0 360 360" role="img"
+            aria-label="Diagram showing four service modules connecting into a central ONLINEE core">
+            <defs>
+              <path id="path-infra" class="diagram-line active" d="M180,146 C180,120 180,106 180,80" />
+              <path id="path-support" class="diagram-line active d2" d="M214,180 C240,180 254,180 280,180" />
+              <path id="path-ops" class="diagram-line active d3" d="M180,214 C180,240 180,254 180,280" />
+              <path id="path-staffing" class="diagram-line active d4" d="M146,180 C120,180 106,180 80,180" />
+            </defs>
+            <use href="#path-infra" data-line="infra" />
+            <use href="#path-support" data-line="support" />
+            <use href="#path-ops" data-line="ops" />
+            <use href="#path-staffing" data-line="staffing" />
+            <circle class="flow-dot" r="3" fill="#3B5BFF">
+              <animateMotion dur="2.8s" repeatCount="indefinite">
+                <mpath href="#path-infra" />
+              </animateMotion>
+            </circle>
+            <circle class="flow-dot" r="3" fill="#00B39B">
+              <animateMotion dur="2.8s" begin="0.6s" repeatCount="indefinite">
+                <mpath href="#path-support" />
+              </animateMotion>
+            </circle>
+            <circle class="flow-dot" r="3" fill="#3B5BFF">
+              <animateMotion dur="2.8s" begin="1.2s" repeatCount="indefinite">
+                <mpath href="#path-ops" />
+              </animateMotion>
+            </circle>
+            <circle class="flow-dot" r="3" fill="#00B39B">
+              <animateMotion dur="2.8s" begin="1.8s" repeatCount="indefinite">
+                <mpath href="#path-staffing" />
+              </animateMotion>
+            </circle>
+            <g class="core-pulse">
+              <circle class="core-ring" cx="180" cy="180" r="42" fill="none" stroke="#E4E6EA" stroke-width="1"
+                stroke-dasharray="2 5" />
+              <circle cx="180" cy="180" r="34" fill="#FFFFFF" stroke="#14171F" stroke-width="2" />
+              <text x="180" y="176" text-anchor="middle" class="core-label">ONLINEE</text>
+              <text x="180" y="190" text-anchor="middle" class="node-label">core</text>
+            </g>
+            <g class="node" tabindex="0" role="button" data-key="infra" data-color="#3B5BFF"
+              data-title="Digital Infrastructure"
+              data-desc="Websites, CRM/ERP, and internal tooling the software backbone your business runs on."
+              aria-label="Digital Infrastructure module">
+              <circle class="node-circle" cx="180" cy="56" r="24" fill="#EEF0FF" stroke="#3B5BFF" stroke-width="1.5" />
+              <g transform="translate(168,44)" color="#3B5BFF">
+                <rect class="node-icon" x="0" y="0" width="24" height="16" rx="2" />
+                <line class="node-icon" x1="7" y1="20" x2="17" y2="20" />
+                <line class="node-icon" x1="12" y1="16" x2="12" y2="20" />
+              </g>
+            </g>
+            <g class="node" tabindex="0" role="button" data-key="support" data-color="#00B39B"
+              data-title="Customer Support"
+              data-desc="Dedicated agents hired and trained specifically on your product chat, ticket, and call coverage."
+              aria-label="Customer Support module">
+              <circle class="node-circle" cx="304" cy="180" r="24" fill="#E6FBF7" stroke="#00B39B" stroke-width="1.5" />
+              <g transform="translate(292,168)" color="#00B39B">
+                <path class="node-icon" d="M2,13 v-3 a10,10 0 0 1 20,0 v3" />
+                <rect class="node-icon" x="1" y="12" width="6" height="7" rx="2" />
+                <rect class="node-icon" x="17" y="12" width="6" height="7" rx="2" />
+              </g>
+            </g>
+            <g class="node" tabindex="0" role="button" data-key="ops" data-color="#3B5BFF"
+              data-title="Business Operations"
+              data-desc="Non-core processes, SOPs, and vendor coordination run to your standards, off your plate."
+              aria-label="Business Operations module">
+              <circle class="node-circle" cx="180" cy="304" r="24" fill="#EEF0FF" stroke="#3B5BFF" stroke-width="1.5" />
+              <g transform="translate(168,292)" color="#3B5BFF">
+                <circle class="node-icon" cx="12" cy="12" r="3.2" />
+                <path class="node-icon"
+                  d="M12,2.5 v3.2 M12,18.3 v3.2 M2.5,12 h3.2 M18.3,12 h3.2 M5.6,5.6 l2.3,2.3 M16.1,16.1 l2.3,2.3 M18.4,5.6 l-2.3,2.3 M7.9,16.1 l-2.3,2.3" />
+              </g>
+            </g>
+            <g class="node" tabindex="0" role="button" data-key="staffing" data-color="#00B39B" data-title="Staffing"
+              data-desc="Talent sourced, screened, and placed fast for roles you need filled now."
+              aria-label="Staffing module">
+              <circle class="node-circle" cx="56" cy="180" r="24" fill="#E6FBF7" stroke="#00B39B" stroke-width="1.5" />
+              <g transform="translate(44,168)" color="#00B39B">
+                <circle class="node-icon" cx="8.5" cy="7" r="3.6" />
+                <path class="node-icon" d="M2,20 c0,-5 3,-7.5 6.5,-7.5 s6.5,2.5 6.5,7.5" />
+                <circle class="node-icon" cx="17.5" cy="8.5" r="3" />
+                <path class="node-icon" d="M15,20 c0,-4 1.6,-6 4.5,-6.6" />
+              </g>
+            </g>
+          </svg>
+          <div class="diagram-caption" id="diagram-caption">
+            <div class="cc-badge" id="cc-badge" aria-hidden="true"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="12" cy="12" r="2.6" fill="currentColor" />
+              </svg></div>
+            <div class="cc-body">
+              <div class="cc-title" id="cc-title">ONLINEE core</div>
+              <div class="cc-desc" id="cc-desc">One accountable team coordinating every module below nothing runs in a
+                silo.</div>
+            </div>
+          </div>
+          <div class="diagram-dots" id="diagram-dots" role="tablist" aria-label="Service modules"></div>
+          <div class="diagram-hint">tap a module or let it auto-play</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:48px 0;">
+      <div class="wrap">
+        <div class="stat-row reveal-stagger">
+          <div class="stat-card">
+            <div class="num"><span class="accent">4</span></div>
+            <p>Service modules</p>
+          </div>
+          <div class="stat-card">
+            <div class="num"><span class="teal">1</span></div>
+            <p>Accountable team</p>
+          </div>
+          <div class="stat-card">
+            <div class="num"><span class="accent">100%</span></div>
+            <p>Product-specific training</p>
+          </div>
+          <div class="stat-card">
+            <div class="num"><span class="teal">24</span><span class="accent">/</span><span class="teal">7</span></div>
+            <p>Response time</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="float-shape float-shape--3" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">What we run</span>
+          <h2>Four systems. One team accountable for all of them.</h2>
+          <p>Instead of managing four vendors, you get one operating partner who owns the infrastructure, the people,
+            and the process behind it.</p>
+        </div>
+        <div class="service-grid reveal-stagger">
+          <div class="service-card">
+            <div class="service-visual" aria-hidden="true">
+              <svg viewBox="0 0 260 110">
+                <rect x="8" y="8" width="244" height="94" rx="10" fill="#FFFFFF" stroke="#E4E6EA" />
+                <path d="M8,26 h244" stroke="#E4E6EA" />
+                <circle cx="22" cy="17" r="2.4" fill="#E4E6EA" />
+                <circle cx="31" cy="17" r="2.4" fill="#E4E6EA" />
+                <circle cx="40" cy="17" r="2.4" fill="#E4E6EA" />
+                <rect x="24" y="38" width="52" height="52" rx="6" fill="#EEF0FF" />
+                <path d="M30,78 L44,58 L54,68 L70,44" fill="none" stroke="#3B5BFF" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="70" cy="44" r="3" fill="#3B5BFF" />
+                <rect x="92" y="52" width="60" height="9" rx="4.5" fill="#EDEEF2" />
+                <rect x="92" y="68" width="90" height="9" rx="4.5" fill="#EDEEF2" />
+                <rect x="92" y="38" width="40" height="9" rx="4.5" fill="#E6FBF7" />
+                <rect x="170" y="38" width="66" height="52" rx="6" fill="#F4F5F7" stroke="#E4E6EA" />
+                <rect x="180" y="48" width="18" height="30" rx="2" fill="#00B39B" opacity=".85" />
+                <rect x="202" y="58" width="18" height="20" rx="2" fill="#3B5BFF" opacity=".85" />
+              </svg>
+            </div>
+            <span class="num">01</span>
+            <h3>Digital Infrastructure</h3>
+            <p>The software backbone your business runs on — built, integrated, and kept online.</p>
+            <ul>
+              <li>Website & web apps</li>
+              <li>CRM / ERP setup & integration</li>
+              <li>Internal tooling & automation</li>
+              <li>Ongoing maintenance</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-visual" aria-hidden="true">
+              <svg viewBox="0 0 260 110">
+                <circle cx="46" cy="55" r="30" fill="#E6FBF7" />
+                <path d="M28,52 v-4 a18,18 0 0 1 36,0 v4" fill="none" stroke="#00B39B" stroke-width="2.4"
+                  stroke-linecap="round" />
+                <rect x="24" y="50" width="11" height="15" rx="4" fill="#00B39B" />
+                <rect x="57" y="50" width="11" height="15" rx="4" fill="#00B39B" />
+                <path d="M46,65 v6 a6,6 0 0 0 6,6 h4" fill="none" stroke="#00B39B" stroke-width="2.2"
+                  stroke-linecap="round" />
+                <rect x="112" y="18" width="86" height="30" rx="8" fill="#FFFFFF" stroke="#E4E6EA" />
+                <circle cx="128" cy="33" r="4" fill="#3B5BFF" />
+                <rect x="138" y="27" width="48" height="5" rx="2.5" fill="#EDEEF2" />
+                <rect x="138" y="37" width="34" height="5" rx="2.5" fill="#EDEEF2" />
+                <rect x="132" y="60" width="86" height="30" rx="8" fill="#EEF0FF" stroke="#E4E6EA" />
+                <circle cx="148" cy="75" r="4" fill="#00B39B" />
+                <rect x="158" y="69" width="48" height="5" rx="2.5" fill="#FFFFFF" />
+                <rect x="158" y="79" width="30" height="5" rx="2.5" fill="#FFFFFF" />
+                <circle cx="228" cy="26" r="3" fill="#00B39B">
+                  <animate attributeName="opacity" values="1;.2;1" dur="1.8s" repeatCount="indefinite" />
+                </circle>
+              </svg>
+            </div>
+            <span class="num">02</span>
+            <h3>Customer Support</h3>
+            <p>Professionals hired and trained specifically on your product, deployed as your frontline.</p>
+            <ul>
+              <li>Hiring & product training</li>
+              <li>Dedicated support agents</li>
+              <li>Chat, ticket & call coverage</li>
+              <li>Weekly performance reporting</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-visual" aria-hidden="true">
+              <svg viewBox="0 0 260 110">
+                <rect x="10" y="42" width="64" height="30" rx="8" fill="#EEF0FF" stroke="#3B5BFF" /><text x="42" y="61"
+                  text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#3B5BFF">intake</text>
+                <path d="M74,57 h26" stroke="#C7CCDA" stroke-width="1.6" />
+                <rect x="100" y="18" width="64" height="30" rx="8" fill="#F4F5F7" stroke="#E4E6EA" /><text x="132"
+                  y="37" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4A4F5C">process</text>
+                <rect x="100" y="66" width="64" height="30" rx="8" fill="#F4F5F7" stroke="#E4E6EA" /><text x="132"
+                  y="85" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4A4F5C">review</text>
+                <path d="M132,48 v10" stroke="#C7CCDA" stroke-width="1.6" />
+                <path d="M132,66 v-8" stroke="#C7CCDA" stroke-width="1.6" />
+                <path d="M164,57 h26" stroke="#C7CCDA" stroke-width="1.6" />
+                <rect x="190" y="42" width="60" height="30" rx="8" fill="#E6FBF7" stroke="#00B39B" /><text x="220"
+                  y="61" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#00806E">done</text>
+              </svg>
+            </div>
+            <span class="num">03</span>
+            <h3>Business Operations</h3>
+            <p>The non-core work that still has to happen — run to your standards, off your plate.</p>
+            <ul>
+              <li>Process & vendor coordination</li>
+              <li>SOPs & documentation</li>
+              <li>Operational reporting</li>
+              <li>Day-to-day ops management</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-visual" aria-hidden="true">
+              <svg viewBox="0 0 260 110">
+                <circle cx="130" cy="24" r="14" fill="#F4F5F7" stroke="#C7CCDA" stroke-dasharray="2 3" /><text x="130"
+                  y="28" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#6B7280">pool</text>
+                <path d="M120,34 L70,58" stroke="#C7CCDA" stroke-width="1.4" />
+                <path d="M140,34 L190,58" stroke="#C7CCDA" stroke-width="1.4" />
+                <path d="M130,38 L130,58" stroke="#C7CCDA" stroke-width="1.4" />
+                <g>
+                  <circle cx="60" cy="72" r="18" fill="#E6FBF7" stroke="#00B39B" />
+                  <circle cx="60" cy="65" r="5.5" fill="none" stroke="#00B39B" stroke-width="1.8" />
+                  <path d="M50,80 c0,-6.5 4.5,-10 10,-10 s10,3.5 10,10" fill="none" stroke="#00B39B" stroke-width="1.8"
+                    stroke-linecap="round" />
+                </g>
+                <g>
+                  <circle cx="130" cy="82" r="18" fill="#EEF0FF" stroke="#3B5BFF" />
+                  <circle cx="130" cy="75" r="5.5" fill="none" stroke="#3B5BFF" stroke-width="1.8" />
+                  <path d="M120,90 c0,-6.5 4.5,-10 10,-10 s10,3.5 10,10" fill="none" stroke="#3B5BFF" stroke-width="1.8"
+                    stroke-linecap="round" />
+                </g>
+                <g>
+                  <circle cx="200" cy="72" r="18" fill="#E6FBF7" stroke="#00B39B" />
+                  <circle cx="200" cy="65" r="5.5" fill="none" stroke="#00B39B" stroke-width="1.8" />
+                  <path d="M190,80 c0,-6.5 4.5,-10 10,-10 s10,3.5 10,10" fill="none" stroke="#00B39B" stroke-width="1.8"
+                    stroke-linecap="round" />
+                </g>
+              </svg>
+            </div>
+            <span class="num">04</span>
+            <h3>Staffing</h3>
+            <p>Talent sourced and placed for roles you need filled now, not next quarter.</p>
+            <ul>
+              <li>Role scoping</li>
+              <li>Candidate sourcing</li>
+              <li>Screening & vetting</li>
+              <li>Fast placement</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="float-shape float-shape--4" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">How it works</span>
+          <h2>Three steps, from first call to running system.</h2>
+        </div>
+        <div class="process-diagram-wrap reveal-scale">
+          <svg id="process-diagram" viewBox="0 0 1000 180" role="img" aria-label="Process flow diagram">
+            <defs>
+              <linearGradient id="pg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="rgba(75,107,255,.15)" />
+                <stop offset="100%" stop-color="rgba(0,194,168,.1)" />
+              </linearGradient>
+              <marker id="arrow-process" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 Z" fill="#3A4055" />
+              </marker>
+            </defs>
+            <line x1="260" y1="90" x2="370" y2="90" stroke="#3A4055" stroke-width="2" stroke-dasharray="4 4"
+              marker-end="url(#arrow-process)">
+              <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite" />
+            </line>
+            <line x1="630" y1="90" x2="740" y2="90" stroke="#3A4055" stroke-width="2" stroke-dasharray="4 4"
+              marker-end="url(#arrow-process)">
+              <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite"
+                begin=".3s" />
+            </line>
+            <g>
+              <rect x="50" y="20" width="210" height="140" rx="16" fill="url(#pg2)" stroke="#4B6BFF" stroke-width="1.5">
+                <animate attributeName="y" from="25" to="20" dur="3s" repeatCount="indefinite" values="20;25;20" />
+              </rect>
+              <circle cx="155" cy="50" r="24" fill="rgba(75,107,255,.15)" stroke="#4B6BFF" stroke-width="1.5" /><text
+                x="155" y="95" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="24"
+                fill="#E8EAF0">01</text><text x="155" y="120" text-anchor="middle" font-family="Space Grotesk"
+                font-weight="600" font-size="17" fill="#E8EAF0">Scope</text><text x="155" y="142" text-anchor="middle"
+                font-family="Inter" font-size="12" fill="#9AA0AE">We map what's needed</text>
+            </g>
+            <g>
+              <rect x="420" y="20" width="210" height="140" rx="16" fill="#161A24" stroke="#1E2330" stroke-width="1.5">
+                <animate attributeName="y" from="20" to="25" dur="3s" repeatCount="indefinite" begin="1s"
+                  values="25;20;25" />
+              </rect>
+              <circle cx="525" cy="50" r="24" fill="#11141E" stroke="#3A4055" stroke-width="1.5" /><text x="525" y="95"
+                text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="24"
+                fill="#E8EAF0">02</text><text x="525" y="120" text-anchor="middle" font-family="Space Grotesk"
+                font-weight="600" font-size="17" fill="#E8EAF0">Deploy</text><text x="525" y="142" text-anchor="middle"
+                font-family="Inter" font-size="12" fill="#9AA0AE">We build and staff it</text>
+            </g>
+            <g>
+              <rect x="790" y="20" width="210" height="140" rx="16" fill="url(#pg2)" stroke="#00C2A8"
+                stroke-width="1.5">
+                <animate attributeName="y" from="25" to="20" dur="3s" repeatCount="indefinite" begin="2s"
+                  values="20;25;20" />
+              </rect>
+              <circle cx="895" cy="50" r="24" fill="rgba(0,194,168,.12)" stroke="#00C2A8" stroke-width="1.5" /><text
+                x="895" y="95" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="24"
+                fill="#E8EAF0">03</text><text x="895" y="120" text-anchor="middle" font-family="Space Grotesk"
+                font-weight="600" font-size="17" fill="#E8EAF0">Run</text><text x="895" y="142" text-anchor="middle"
+                font-family="Inter" font-size="12" fill="#9AA0AE">We operate, you review</text>
+            </g>
+          </svg>
+          <svg class="process-diagram-mobile" viewBox="0 0 360 520" role="img" aria-label="Process flow diagram">
+            <defs>
+              <marker id="arrow-down" markerWidth="10" markerHeight="10" refX="5" refY="10" orient="auto">
+                <path d="M0,0 L5,10 L10,0 Z" fill="#3A4055" />
+              </marker>
+            </defs>
+            <line x1="180" y1="145" x2="180" y2="175" stroke="#3A4055" stroke-width="2" stroke-dasharray="4 4"
+              marker-end="url(#arrow-down)">
+              <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite" />
+            </line>
+            <line x1="180" y1="305" x2="180" y2="335" stroke="#3A4055" stroke-width="2" stroke-dasharray="4 4"
+              marker-end="url(#arrow-down)">
+              <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite"
+                begin=".3s" />
+            </line>
+            <circle r="4" fill="#4B6BFF">
+              <animateMotion dur="1.5s" repeatCount="indefinite">
+                <mpath>
+                  <path d="M180,145 L180,175" />
+                </mpath>
+              </animateMotion>
+            </circle>
+            <circle r="4" fill="#00C2A8">
+              <animateMotion dur="1.5s" begin=".5s" repeatCount="indefinite">
+                <mpath>
+                  <path d="M180,305 L180,335" />
+                </mpath>
+              </animateMotion>
+            </circle>
+            <rect x="30" y="10" width="300" height="130" rx="14" fill="url(#pg2)" stroke="#4B6BFF" stroke-width="1.5">
+              <animate attributeName="y" from="15" to="10" dur="3s" repeatCount="indefinite" values="10;15;10" />
+            </rect>
+            <circle cx="180" cy="38" r="18" fill="rgba(75,107,255,.15)" stroke="#4B6BFF" stroke-width="1.5" /><text
+              x="180" y="78" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="22"
+              fill="#E8EAF0">01</text><text x="180" y="100" text-anchor="middle" font-family="Space Grotesk"
+              font-weight="600" font-size="16" fill="#E8EAF0">Scope</text><text x="180" y="122" text-anchor="middle"
+              font-family="Inter" font-size="11" fill="#9AA0AE">We map what's needed</text>
+            <rect x="30" y="185" width="300" height="115" rx="14" fill="#161A24" stroke="#1E2330" stroke-width="1.5">
+              <animate attributeName="y" from="185" to="190" dur="3s" repeatCount="indefinite" begin="1s"
+                values="190;185;190" />
+            </rect>
+            <circle cx="180" cy="212" r="18" fill="#11141E" stroke="#3A4055" stroke-width="1.5" /><text x="180" y="252"
+              text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="22"
+              fill="#E8EAF0">02</text><text x="180" y="274" text-anchor="middle" font-family="Space Grotesk"
+              font-weight="600" font-size="16" fill="#E8EAF0">Deploy</text><text x="180" y="290" text-anchor="middle"
+              font-family="Inter" font-size="11" fill="#9AA0AE">We build and staff it</text>
+            <rect x="30" y="345" width="300" height="130" rx="14" fill="url(#pg2)" stroke="#00C2A8" stroke-width="1.5">
+              <animate attributeName="y" from="350" to="345" dur="3s" repeatCount="indefinite" begin="2s"
+                values="345;350;345" />
+            </rect>
+            <circle cx="180" cy="373" r="18" fill="rgba(0,194,168,.12)" stroke="#00C2A8" stroke-width="1.5" /><text
+              x="180" y="413" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="22"
+              fill="#E8EAF0">03</text><text x="180" y="435" text-anchor="middle" font-family="Space Grotesk"
+              font-weight="600" font-size="16" fill="#E8EAF0">Run</text><text x="180" y="457" text-anchor="middle"
+              font-family="Inter" font-size="11" fill="#9AA0AE">We operate, you review</text>
+          </svg>
+        </div>
+        <div class="process-list">
+          <div class="process-step">
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg></div>
+            <div class="step-tag">01 / Scope</div>
+            <h3>We map what's actually needed</h3>
+            <p>A working session to identify which systems, roles, and processes are worth taking off your plate first —
+              no bundled packages you don't need.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg></div>
+            <div class="step-tag">02 / Deploy</div>
+            <h3>We build and staff it</h3>
+            <p>Infrastructure gets built, people get hired and trained on your product specifically, and operating
+              processes get documented.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg></div>
+            <div class="step-tag">03 / Run</div>
+            <h3>We operate it, you review it</h3>
+            <p>ONLINEE runs day-to-day execution. You get regular reporting and stay in control of direction, without
+              being in the weeds.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="roadmap" id="roadmap">
+      <div class="particle-grid particle-grid--animated" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">In development</span>
+          <h2>What we're building next.</h2>
+          <p>Additional service lines currently in scoping and early pilots. Reach out if any of these are relevant to
+            you now — we're building them with early partners.</p>
+        </div>
+        <div class="roadmap-list reveal-stagger">
+          <div class="roadmap-row">
+            <h3>SOC Operations</h3>
+            <p>Security operations center services for businesses that need continuous monitoring without an in-house
+              team.</p><span class="badge">In development</span>
+          </div>
+          <div class="roadmap-row">
+            <h3>AI Data & Ethics Monitoring</h3>
+            <p>Oversight for data generated through AI systems — flagging harmful or non-compliant outputs before they
+              become a problem.</p><span class="badge">Early stage</span>
+          </div>
+          <div class="roadmap-row">
+            <h3>Executive & Business Security</h3>
+            <p>Vetted personnel for on-demand or permanent protection of business leaders and premises.</p><span
+              class="badge">In development</span>
+          </div>
+          <div class="roadmap-row">
+            <h3>Legacy Business Operations</h3>
+            <p>Modernized operations management for established, family-run businesses still running on traditional
+              systems.</p><span class="badge">Coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="principles">
+      <div class="bg-mesh" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Why ONLINEE</span>
+          <h2>Built around accountability, not headcount.</h2>
+        </div>
+        <div class="principles-grid reveal-stagger">
+          <div class="principle"><span class="p-num">01</span>
+            <h3>One point of ownership</h3>
+            <p>One team accountable for infrastructure, people, and process — not four vendors pointing at each other.
+            </p>
+          </div>
+          <div class="principle"><span class="p-num">02</span>
+            <h3>Trained on your product</h3>
+            <p>Support and ops staff are hired and trained specifically for your business, not shared across unrelated
+              accounts.</p>
+          </div>
+          <div class="principle"><span class="p-num">03</span>
+            <h3>Scoped, not bundled</h3>
+            <p>You take what you need now. Nothing is sold as a fixed package you have to grow into.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="float-shape float-shape--2" aria-hidden="true"></div>
+      <div class="wrap cta-inner">
+        <h2>Tell us what's slowing your team down.</h2>
+        <div class="cta-actions"><a href="#contact" class="btn btn-primary">Book a scoping call</a></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Contact</span>
+          <h2>Let's scope your first system.</h2>
+          <p>Tell us what you're currently managing yourself — we'll come back with what we'd take off your plate first.
+          </p>
+        </div>
+        <div class="contact-grid reveal">
+          <div class="contact-info">
+            <p>Prefer email? Reach us directly — or fill out the form and we'll get back to you within one business day.
+            </p>
+            <div class="contact-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg><a href="mailto:hello@onlinee.in">hello@onlinee.in</a></div>
+            <div class="contact-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg><span>Bangalore, Karnataka</span></div>
+            <div class="contact-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg><span>+91 9741367860</span></div>
+          </div>
+          <div class="form-card">
+            <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+              <div class="form-row">
+                <div class="form-group"><label for="form-name">Name</label><input type="text" id="form-name" name="name"
+                    required placeholder="Your name"></div>
+                <div class="form-group"><label for="form-email">Email</label><input type="email" id="form-email"
+                    name="email" required placeholder="you@company.com"></div>
+              </div>
+              <div class="form-group"><label for="form-company">Company</label><input type="text" id="form-company"
+                  name="company" placeholder="Company name (optional)"></div>
+              <div class="form-group"><label for="form-phone">Contact number</label><input type="tel" id="form-phone"
+                  name="phone" placeholder="+91 98765 43210"></div>
+              <div class="form-group"><label for="form-interest">I'm interested in</label><select id="form-interest"
+                  name="interest">
+                  <option value="">Select a service (optional)</option>
+                  <option value="infrastructure">Digital Infrastructure</option>
+                  <option value="support">Customer Support</option>
+                  <option value="operations">Business Operations</option>
+                  <option value="staffing">Staffing</option>
+                  <option value="multiple">Multiple / Not sure</option>
+                </select></div>
+              <div class="form-group"><label for="form-message">Message</label><textarea id="form-message"
+                  name="message" required
+                  placeholder="Tell us about your current operations and what you'd like help with..."></textarea></div>
+              <div class="form-submit"><button type="submit" class="btn btn-primary">Send message</button><span
+                  class="form-note">Contact on the given number for immediate response</span></div>
+            </form>
+            <div class="form-success" id="form-success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <h3>Message sent</h3>
+              <p>Thanks for reaching out. We'll get back to you within one business day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="#top" class="logo"><svg class="logo-mark" viewBox="0 0 100 100"
+              aria-hidden="true">
+              <rect width="100" height="100" rx="22" fill="#2A3044" />
+              <circle cx="50" cy="50" r="16" fill="none" stroke="#4B6BFF" stroke-width="6" />
+              <circle cx="50" cy="16" r="7" fill="#4B6BFF" />
+              <circle cx="84" cy="50" r="7" fill="#00C2A8" />
+              <circle cx="50" cy="84" r="7" fill="#4B6BFF" />
+              <circle cx="16" cy="50" r="7" fill="#00C2A8" />
+            </svg>ONLINEE</a>
+          <p>Operations infrastructure for funded startups — digital, support, ops, and staffing, run by one accountable
+            team.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Digital Infrastructure</a></li>
+            <li><a href="#services">Customer Support</a></li>
+            <li><a href="#services">Business Operations</a></li>
+            <li><a href="#services">Staffing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Based in</h4>
+          <ul>
+            <li>Bangalore, India</li>
+            <li><a href="mailto:hello@onlinee.in">hello@onlinee.in</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 ONLINEE. All rights reserved.</span><span>Bangalore, Karnataka</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const frame = document.querySelector('.diagram-frame');
+      const nodes = Array.from(document.querySelectorAll('#hero-diagram .node'));
+      const titleEl = document.getElementById('cc-title');
+      const descEl = document.getElementById('cc-desc');
+      const caption = document.getElementById('diagram-caption');
+      const badge = document.getElementById('cc-badge');
+      const dotsWrap = document.getElementById('diagram-dots');
+      if (!frame || nodes.length === 0) return;
+      const order = ['infra', 'support', 'ops', 'staffing'];
+      const defaultTitle = 'ONLINEE core', defaultDesc = 'One accountable team coordinating every module below \u2014 nothing runs in a silo.';
+      const icons = { core: '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.6" fill="currentColor"/>', infra: '<rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="8" y1="20" x2="16" y2="20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="12" y1="16" x2="12" y2="20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>', support: '<path d="M4,13 v-2 a8,8 0 0 1 16,0 v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3" y="12" width="5" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="16" y="12" width="5" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/>', ops: '<circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12,3 v3 M12,18 v3 M3,12 h3 M18,12 h3 M5.6,5.6 l2.1,2.1 M16.3,16.3 l2.1,2.1 M18.4,5.6 l-2.1,2.1 M7.7,16.3 l-2.1,2.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>', staffing: '<circle cx="8" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2,20 c0,-4.5 2.7,-7 6,-7 s6,2.5 6,7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="17" cy="8.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14.5,20 c0,-3.6 1.4,-5.4 4,-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>' };
+      const dots = order.map((k, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('aria-label', 'Show ' + k + ' module'); b.addEventListener('click', () => select(k, true)); dotsWrap.appendChild(b); return b; });
+      function paintBadge(k) { badge.innerHTML = '<svg viewBox="0 0 24 24">' + icons[k] + '</svg>'; }
+      function select(key, isUserAction) {
+        nodes.forEach(n => n.classList.remove('is-active'));
+        document.querySelectorAll('#hero-diagram [data-line]').forEach(l => l.classList.remove('highlight'));
+        if (!key) { titleEl.textContent = defaultTitle; descEl.textContent = defaultDesc; caption.style.setProperty('--dot-color', 'var(--accent)'); paintBadge('core'); dots.forEach(d => d.classList.remove('is-on')); }
+        else { const node = nodes.find(n => n.getAttribute('data-key') === key); if (!node) return; node.classList.add('is-active'); const line = document.querySelector('#hero-diagram [data-line="' + key + '"]'); if (line) line.classList.add('highlight'); titleEl.textContent = node.getAttribute('data-title'); descEl.textContent = node.getAttribute('data-desc'); caption.style.setProperty('--dot-color', node.getAttribute('data-color')); paintBadge(key); dots.forEach((d, i) => d.classList.toggle('is-on', order[i] === key)); }
+        titleEl.style.animation = 'none'; descEl.style.animation = 'none'; void titleEl.offsetWidth; titleEl.style.animation = ''; descEl.style.animation = '';
+        if (isUserAction) pauseAutoplay();
+      }
+      let autoIndex = 0, autoplayId = null, resumeId = null;
+      function startAutoplay() { stopAutoplay(); autoplayId = setInterval(() => { select(order[autoIndex], false); autoIndex = (autoIndex + 1) % order.length; }, 3000); }
+      function stopAutoplay() { if (autoplayId) { clearInterval(autoplayId); autoplayId = null; } }
+      function pauseAutoplay() { stopAutoplay(); if (resumeId) clearTimeout(resumeId); resumeId = setTimeout(startAutoplay, 6000); }
+      nodes.forEach(node => { const key = node.getAttribute('data-key'); node.addEventListener('click', () => select(key, true)); node.addEventListener('focus', () => select(key, true)); });
+      frame.addEventListener('mouseleave', () => { if (!resumeId) startAutoplay(); });
+      select(null, false); startAutoplay();
+    })();
+
+    const observerOpts = { threshold: .12, rootMargin: '0px 0px -40px 0px' };
+    const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }); }, observerOpts);
+    document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.reveal-stagger').forEach(el => obs.observe(el));
+
+    const progressBar = document.getElementById('scroll-progress');
+    if (progressBar) { window.addEventListener('scroll', () => { const h = document.documentElement; const t = h.scrollHeight - h.clientHeight; progressBar.style.width = (h.scrollTop / t * 100) + '%'; }, { passive: true }); }
+
+    const header = document.getElementById('header');
+    if (header) { let ticking = false; window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(() => { header.classList.toggle('is-scrolled', window.scrollY > 20); ticking = false; }); ticking = true; } }, { passive: true }); }
+
+    const parallaxEls = document.querySelectorAll('[data-parallax]');
+    if (parallaxEls.length && !window.matchMedia('(prefers-reduced-motion:reduce)').matches) { window.addEventListener('scroll', () => { const st = window.scrollY; parallaxEls.forEach(el => { const rate = parseFloat(el.getAttribute('data-parallax')) || .04; const rect = el.getBoundingClientRect(); const center = rect.top + rect.height / 2; const viewCenter = window.innerHeight / 2; const offset = (center - viewCenter) * rate; el.style.transform = 'translateY(' + (-offset) + 'px)'; }); }, { passive: true }); }
+
+    const cursor = document.getElementById('cursor-follower');
+    if (cursor && window.matchMedia('(hover:hover)and(pointer:fine)').matches) { let cx = 0, cy = 0, visible = false; document.addEventListener('mousemove', (e) => { cx = e.clientX; cy = e.clientY; if (!visible) { cursor.classList.add('is-visible'); visible = true; } cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px'; }); document.addEventListener('mouseleave', () => { cursor.classList.remove('is-visible'); visible = false; }); document.querySelectorAll('a,button,.node,.service-card,.principle,.process-step').forEach(el => { el.addEventListener('mouseenter', () => cursor.classList.add('is-hovering')); el.addEventListener('mouseleave', () => cursor.classList.remove('is-hovering')); }); }
+
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    if (form) { form.addEventListener('submit', async (e) => { e.preventDefault(); const btn = form.querySelector('button[type="submit"]'); const orig = btn.textContent; btn.disabled = true; btn.textContent = 'Sending...'; try { const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } }); if (res.ok) { form.style.display = 'none'; success.classList.add('is-visible'); } else { alert('Something went wrong. Please email us directly at hello@onlinee.in'); } } catch { alert('Something went wrong. Please email us directly at hello@onlinee.in'); } finally { btn.disabled = false; btn.textContent = orig; } }, false); }
+
+    (function () {
+      const canvas = document.getElementById('network-bg');
+      if (!canvas || window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+      const ctx = canvas.getContext('2d');
+      let W, H, nodes = [], packets = [];
+      const COLORS = ['59,91,255', '0,194,168', '107,127,255', '0,170,150'], N = 22, CD = 220, PI = 25;
+      function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; initNodes(); }
+      function initNodes() { nodes = []; for (let i = 0; i < N; i++) { nodes.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25, r: 2 + Math.random() * 3, color: COLORS[Math.floor(Math.random() * COLORS.length)], pulse: Math.random() * Math.PI * 2 }); } }
+      function getConns() { const c = []; for (let i = 0; i < nodes.length; i++)for (let j = i + 1; j < nodes.length; j++) { const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y, d = Math.sqrt(dx * dx + dy * dy); if (d < CD) c.push({ i, j, d }); } return c; }
+      let frame = 0;
+      function tick() {
+        frame++; ctx.clearRect(0, 0, W, H); const conns = getConns();
+        nodes.forEach(n => { n.x += n.vx; n.y += n.vy; n.pulse += .015; if (n.x < 0 || n.x > W) n.vx *= -1; if (n.y < 0 || n.y > H) n.vy *= -1; });
+        conns.forEach(c => { const a = nodes[c.i], b = nodes[c.j], alpha = Math.max(0, 1 - c.d / CD) * .2; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.strokeStyle = `rgba(120,140,255,${alpha})`; ctx.lineWidth = .8; ctx.stroke(); });
+        if (frame % PI === 0 && conns.length > 0) { const c = conns[Math.floor(Math.random() * conns.length)]; packets.push({ a: c.i, b: c.j, t: 0, speed: .006 + Math.random() * .008, color: COLORS[Math.floor(Math.random() * COLORS.length)] }); }
+        for (let p = packets.length - 1; p >= 0; p--) { const pk = packets[p]; pk.t += pk.speed; if (pk.t >= 1) { packets.splice(p, 1); continue; } const a = nodes[pk.a], b = nodes[pk.b]; if (!a || !b) { packets.splice(p, 1); continue; } const x = a.x + (b.x - a.x) * pk.t, y = a.y + (b.y - a.y) * pk.t, glow = 1 - Math.abs(pk.t - .5) * 2; ctx.beginPath(); ctx.arc(x, y, 2 + glow * 1.5, 0, Math.PI * 2); ctx.fillStyle = `rgba(${pk.color},${.3 + glow * .5})`; ctx.fill(); ctx.beginPath(); ctx.arc(x, y, 6 + glow * 4, 0, Math.PI * 2); ctx.fillStyle = `rgba(${pk.color},${.04 + glow * .08})`; ctx.fill(); }
+        nodes.forEach(n => { const p = .7 + .3 * Math.sin(n.pulse); ctx.beginPath(); ctx.arc(n.x, n.y, n.r * p, 0, Math.PI * 2); ctx.fillStyle = `rgba(${n.color},.6)`; ctx.fill(); ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 3 * p, 0, Math.PI * 2); ctx.fillStyle = `rgba(${n.color},.04)`; ctx.fill(); });
+        requestAnimationFrame(tick);
+      }
+      window.addEventListener('resize', resize); resize(); tick();
+    })();
+  </script>
+</body>
+
+</html>
