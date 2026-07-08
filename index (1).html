@@ -1,0 +1,2640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onlinee — Operations Infrastructure for Growing Businesses</title>
+  <meta name="description"
+    content="Onlinee builds and runs digital infrastructure, customer support, business operations, and staffing that growing businesses need to scale">
+  <link rel="canonical" href="https://onlinee.in/">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23000'/%3E%3Ccircle cx='50' cy='50' r='16' fill='none' stroke='%2300E5FF' stroke-width='6'/%3E%3Ccircle cx='50' cy='16' r='7' fill='%2300E5FF'/%3E%3Ccircle cx='84' cy='50' r='7' fill='%2300E5FF'/%3E%3Ccircle cx='50' cy='84' r='7' fill='%2300E5FF'/%3E%3Ccircle cx='16' cy='50' r='7' fill='%2300E5FF'/%3E%3C/svg%3E">
+  <script
+    type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"}}</script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #06080f;
+      --bg2: #0b0f1e;
+      --ink: #eaecf2;
+      --ink2: #8891b0;
+      --ink3: #535a7a;
+      --line: rgba(0, 229, 255, .08);
+      --cyan: #00e5ff;
+      --violet: #7c3aed;
+      --amber: #f59e0b;
+      --pink: #ec4899;
+      --glass: rgba(9, 12, 24, .82);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+
+      *,
+      :after,
+      :before {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        animation-iteration-count: 1 !important
+      }
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    ul {
+      list-style: none
+    }
+
+    svg {
+      display: block;
+      max-width: 100%
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px
+    }
+
+    ::-webkit-scrollbar {
+      width: 3px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg)
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--cyan);
+      border-radius: 4px
+    }
+
+    #three-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none
+    }
+
+    .bg-veil {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: radial-gradient(ellipse at 50% 15%, rgba(6, 8, 15, .18) 0%, rgba(6, 8, 15, .48) 55%, rgba(6, 8, 15, .72) 100%)
+    }
+
+    .scroll-proxy {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 1px;
+      z-index: -1
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 3
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 32px;
+      transition: all .5s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    header.scrolled {
+      background: rgba(6, 8, 15, .85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--line)
+    }
+
+    header .inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity .2s;
+      letter-spacing: -.02em
+    }
+
+    .logo .brand-ee {
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .logo:hover {
+      opacity: .7
+    }
+
+    .logo .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 14px var(--cyan);
+      animation: pulse-dot 2s ease-in-out infinite
+    }
+
+    .nav {
+      display: flex;
+      gap: 28px;
+      font-size: 13px;
+      font-weight: 500
+    }
+
+    .nav a {
+      color: var(--ink2);
+      position: relative;
+      transition: color .2s;
+      padding: 4px 0
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--cyan);
+      transition: width .3s;
+      border-radius: 2px
+    }
+
+    .nav a:hover {
+      color: var(--ink)
+    }
+
+    .nav a:hover::after {
+      width: 100%
+    }
+
+    @media(max-width:860px) {
+      .nav {
+        display: none
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 13px;
+      padding: 10px 22px;
+      border-radius: 10px;
+      transition: all .3s cubic-bezier(.16, 1, .3, 1);
+      border: 1px solid transparent;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden
+    }
+
+    .btn-prime {
+      background: linear-gradient(135deg, var(--cyan), #06b6d4);
+      color: #06080f;
+      box-shadow: 0 4px 24px rgba(0, 229, 255, .25)
+    }
+
+    .btn-prime:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 36px rgba(0, 229, 255, .4)
+    }
+
+    .btn-ghost {
+      color: var(--ink);
+      border-color: var(--line);
+      background: var(--glass);
+      backdrop-filter: blur(12px)
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(0, 229, 255, .3);
+      background: rgba(0, 229, 255, .06);
+      transform: translateY(-2px)
+    }
+
+    .btn-sm {
+      padding: 8px 18px;
+      font-size: 12px;
+      border-radius: 8px
+    }
+
+    .btn-talk {
+      background: linear-gradient(135deg, var(--cyan), #06b6d4);
+      color: #06080f;
+      border: none;
+      font-size: 12px;
+      padding: 8px 18px;
+      border-radius: 8px
+    }
+
+    .btn-talk:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 229, 255, .5)
+    }
+
+    section {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 0
+    }
+
+    @media(max-width:768px) {
+      section {
+        min-height: auto;
+        padding: 80px 0
+      }
+    }
+
+    .section-head {
+      max-width: 600px;
+      margin-bottom: 48px
+    }
+
+    .section-head .tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px
+    }
+
+    .section-head .tag::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      background: var(--cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--cyan)
+    }
+
+    .section-head h2 {
+      font-size: clamp(28px, 3.4vw, 42px);
+      font-weight: 600;
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      margin-bottom: 14px
+    }
+
+    .section-head h2 .hl {
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .section-head p {
+      color: var(--ink2);
+      font-size: 15px;
+      line-height: 1.6
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      padding-top: 96px;
+      box-sizing: border-box
+    }
+
+    .hero .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 60px;
+      align-items: center
+    }
+
+    @media(max-width:960px) {
+      .hero .hero-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .hero .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--cyan);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .hero .eyebrow span {
+      display: inline-flex;
+      gap: 6px
+    }
+
+    .hero .eyebrow .dot-pulse {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse-dot 2s ease-in-out infinite
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 60px);
+      font-weight: 600;
+      letter-spacing: -.025em;
+      line-height: 1.02;
+      margin: 24px 0 18px
+    }
+
+    .hero h1 .hl {
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hero .sub {
+      font-size: 17px;
+      color: var(--ink2);
+      max-width: 520px;
+      margin-bottom: 32px;
+      line-height: 1.6
+    }
+
+    .hero .acts {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px
+    }
+
+    .hero .stats {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      border-top: 1px solid var(--line)
+    }
+
+    .hero .stats span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink2);
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--line);
+      padding: 7px 14px;
+      border-radius: 100px;
+      white-space: nowrap
+    }
+
+    .hero .stats span::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 6px var(--cyan);
+      flex-shrink: 0
+    }
+
+    /* Hero diagram panel */
+    .diagram-wrap {
+      position: relative
+    }
+
+    .glass-panel {
+      background: var(--glass);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      position: relative;
+      transition: all .4s
+    }
+
+    .glass-panel:hover {
+      border-color: rgba(0, 229, 255, .15);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .5)
+    }
+
+    .panel-cap {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink3);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .panel-cap::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line)
+    }
+
+    .diagram-svg {
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 340px;
+      margin: 0 auto
+    }
+
+    .diagram-svg text {
+      font-family: var(--font-display)
+    }
+
+    .diagram-svg .sm {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      fill: var(--ink2)
+    }
+
+    .radar-rings {
+      transform-origin: 170px 170px;
+      animation: ringSpin 45s linear infinite
+    }
+
+    @keyframes ringSpin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .hub-glow {
+      animation: hubPulse 3.5s ease-in-out infinite
+    }
+
+    @keyframes hubPulse {
+
+      0%,
+      100% {
+        opacity: .18
+      }
+
+      50% {
+        opacity: .4
+      }
+    }
+
+    .node-bob {
+      animation: cardBob 4.5s ease-in-out infinite;
+      transform-box: fill-box
+    }
+
+    @keyframes cardBob {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-3px)
+      }
+    }
+
+    .diagram-svg .node {
+      cursor: pointer;
+      transition: transform .35s cubic-bezier(.34, 1.56, .64, 1);
+      transform-box: fill-box;
+      transform-origin: center
+    }
+
+    .diagram-svg .node:hover,
+    .diagram-svg .node.active {
+      transform: scale(1.08)
+    }
+
+    .diagram-svg .chip-box {
+      fill: rgba(255, 255, 255, .03);
+      stroke-width: 1.3;
+      transition: all .3s
+    }
+
+    .diagram-svg .node:hover .chip-box,
+    .diagram-svg .node.active .chip-box {
+      fill: rgba(255, 255, 255, .08);
+      filter: drop-shadow(0 0 14px currentColor)
+    }
+
+    .diagram-svg .chip-label {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      letter-spacing: .02em;
+      transition: opacity .3s
+    }
+
+    .diagram-svg .beam {
+      stroke-width: 1.4;
+      fill: none;
+      opacity: .32
+    }
+
+    .caption-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: rgba(6, 8, 15, .5);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-height: 50px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .caption-box::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--cc, var(--cyan));
+      transition: background .3s;
+      border-radius: 0 2px 2px 0
+    }
+
+    .cb-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: rgba(6, 8, 15, .6);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--cc, var(--cyan));
+      transition: all .3s
+    }
+
+    .cb-icon svg {
+      width: 14px;
+      height: 14px
+    }
+
+    .cb-body {
+      flex: 1;
+      min-width: 0
+    }
+
+    .cb-body .cb-t {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--ink);
+      margin-bottom: 2px
+    }
+
+    .cb-body .cb-d {
+      font-size: 12px;
+      color: var(--ink2);
+      line-height: 1.4
+    }
+
+    .cb-t,
+    .cb-d {
+      animation: fadeIn .35s ease
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(4px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .dot-nav {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 10px
+    }
+
+    .dot-nav button {
+      width: 16px;
+      height: 4px;
+      border-radius: 100px;
+      border: none;
+      background: var(--line);
+      cursor: pointer;
+      padding: 0;
+      transition: all .3s
+    }
+
+    .dot-nav button.on {
+      background: var(--cyan);
+      width: 22px
+    }
+
+    .panel-hint {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--ink3);
+      text-align: center;
+      margin-top: 8px
+    }
+
+    /* Services */
+    .services {
+      background: transparent
+    }
+
+    .services .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px
+    }
+
+    @media(max-width:760px) {
+      .services .grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .sc {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 28px 24px;
+      transition: all .4s cubic-bezier(.16, 1, .3, 1);
+      position: relative;
+      overflow: hidden
+    }
+
+    .sc::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+      opacity: 0;
+      transition: opacity .4s;
+      z-index: 1
+    }
+
+    .sc:hover::before {
+      opacity: 1
+    }
+
+    .sc:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 229, 255, .15);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .4)
+    }
+
+    .sc .snum {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px
+    }
+
+    .sc .snum::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line)
+    }
+
+    .sc h3 {
+      font-size: 18px;
+      margin-bottom: 6px
+    }
+
+    .sc p {
+      color: var(--ink2);
+      font-size: 14px;
+      margin-bottom: 14px;
+      line-height: 1.55
+    }
+
+    .sc ul {
+      display: flex;
+      flex-direction: column;
+      gap: 7px
+    }
+
+    .sc li {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--ink3);
+      display: flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .sc li::before {
+      content: "\25B8";
+      color: var(--cyan);
+      font-size: 13px
+    }
+
+    .sc .sv {
+      background: rgba(6, 8, 15, .5);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      height: 88px;
+      margin-bottom: 16px;
+      padding: 5px;
+      overflow: hidden;
+      transition: all .3s
+    }
+
+    .sc:hover .sv {
+      border-color: rgba(0, 229, 255, .12)
+    }
+
+    .sc .sv svg {
+      width: 100%;
+      height: 100%
+    }
+
+    .sc .sv svg *[fill="#FFFFFF"] {
+      fill: #0b0f1e
+    }
+
+    .sc .sv svg *[fill="#F4F5F7"] {
+      fill: var(--bg2)
+    }
+
+    .sc .sv svg *[fill="#EDEEF2"] {
+      fill: var(--line)
+    }
+
+    .sc .sv svg *[stroke="#E4E6EA"] {
+      stroke: var(--line)
+    }
+
+    .sc .sv svg *[fill="#EEF0FF"] {
+      fill: rgba(0, 229, 255, .04)
+    }
+
+    .sc .sv svg *[fill="#E6FBF7"] {
+      fill: rgba(0, 229, 255, .04)
+    }
+
+    .sc .sv svg *[stroke="#3B5BFF"] {
+      stroke: var(--cyan)
+    }
+
+    .sc .sv svg *[stroke="#00B39B"] {
+      stroke: var(--violet)
+    }
+
+    .sc .sv svg *[fill="#3B5BFF"] {
+      fill: var(--cyan)
+    }
+
+    .sc .sv svg *[fill="#00B39B"] {
+      fill: var(--violet)
+    }
+
+    .sc .sv svg text {
+      fill: var(--ink) !important
+    }
+
+    .sc .glow {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: .02;
+      background: radial-gradient(circle, var(--cyan), transparent 70%)
+    }
+
+    /* Process */
+    .process {
+      background: transparent
+    }
+
+    .p-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px
+    }
+
+    @media(max-width:760px) {
+      .p-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .ps {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 22px;
+      transition: all .4s
+    }
+
+    .ps:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 229, 255, .12);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .3)
+    }
+
+    .ps .pi {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      background: rgba(0, 229, 255, .06);
+      color: var(--cyan);
+      transition: all .3s
+    }
+
+    .ps:hover .pi {
+      background: var(--cyan);
+      color: #06080f;
+      box-shadow: 0 4px 20px rgba(0, 229, 255, .25)
+    }
+
+    .ps .pi svg {
+      width: 17px;
+      height: 17px
+    }
+
+    .ps .pt {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--ink3);
+      margin-bottom: 8px;
+      transition: color .3s
+    }
+
+    .ps:hover .pt {
+      color: var(--cyan)
+    }
+
+    .ps h3 {
+      font-size: 16px;
+      margin-bottom: 6px
+    }
+
+    .ps p {
+      color: var(--ink2);
+      font-size: 13px;
+      line-height: 1.55
+    }
+
+    /* Brands */
+    .brands {
+      background: transparent;
+      position: relative
+    }
+
+    .brands .b-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px
+    }
+
+    @media(max-width:860px) {
+      .brands .b-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .bc {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 22px;
+      transition: all .4s cubic-bezier(.16, 1, .3, 1);
+      position: relative;
+      overflow: hidden
+    }
+
+    .bc::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--c, var(--cyan)), transparent);
+      opacity: 0;
+      transition: opacity .4s
+    }
+
+    .bc:hover::before {
+      opacity: 1
+    }
+
+    .bc:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 229, 255, .12);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .4)
+    }
+
+    .bc .bi {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 14px;
+      transition: all .3s;
+      position: relative;
+      z-index: 1
+    }
+
+    .bc:hover .bi {
+      transform: scale(1.06)
+    }
+
+    .bc .bi.i1 {
+      background: linear-gradient(135deg, rgba(0, 229, 255, .12), rgba(0, 229, 255, .04));
+      color: var(--cyan);
+      border: 1px solid rgba(0, 229, 255, .12)
+    }
+
+    .bc .bi.i2 {
+      background: linear-gradient(135deg, rgba(124, 58, 237, .12), rgba(124, 58, 237, .04));
+      color: var(--violet);
+      border: 1px solid rgba(124, 58, 237, .12)
+    }
+
+    .bc .bi.i3 {
+      background: linear-gradient(135deg, rgba(245, 158, 11, .12), rgba(245, 158, 11, .04));
+      color: var(--amber);
+      border: 1px solid rgba(245, 158, 11, .12)
+    }
+
+    .bc .br {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+      color: var(--c, var(--cyan))
+    }
+
+    .bc h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1
+    }
+
+    .bc p {
+      color: var(--ink2);
+      font-size: 13px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1
+    }
+
+    .bc .bbg {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: .03;
+      background: radial-gradient(circle, var(--c, var(--cyan)), transparent 70%)
+    }
+
+    .bc .b-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 16px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--c, var(--cyan));
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+      opacity: .8;
+      transition: opacity .2s, gap .2s
+    }
+
+    .bc .b-link:hover {
+      opacity: 1;
+      gap: 8px
+    }
+
+    /* Roadmap */
+    .rm {
+      background: transparent
+    }
+
+    .rm-list {
+      display: flex;
+      flex-direction: column;
+      background: rgba(11, 15, 30, .6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 6px 22px
+    }
+
+    .rm-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 120px;
+      gap: 20px;
+      align-items: center;
+      padding: 20px 0 20px 16px;
+      border-bottom: 1px solid var(--line);
+      transition: all .35s;
+      position: relative
+    }
+
+    .rm-row::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--cyan);
+      transform: scaleY(0);
+      transition: transform .35s;
+      border-radius: 2px
+    }
+
+    .rm-row:hover::before {
+      transform: scaleY(1)
+    }
+
+    .rm-row:hover {
+      background: rgba(0, 229, 255, .02);
+      padding-left: 24px;
+      border-radius: 0 8px 8px 0
+    }
+
+    @media(max-width:760px) {
+      .rm-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 14px 10px
+      }
+
+      .rm-row:hover {
+        padding-left: 14px
+      }
+
+      .rm-row::before {
+        display: none
+      }
+    }
+
+    .rm-row h3 {
+      font-size: 15px;
+      transition: color .3s
+    }
+
+    .rm-row:hover h3 {
+      color: var(--cyan)
+    }
+
+    .rm-row p {
+      color: var(--ink2);
+      font-size: 13px
+    }
+
+    .rm-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--ink3);
+      border: 1px solid var(--line);
+      padding: 4px 12px;
+      border-radius: 100px;
+      width: fit-content;
+      justify-self: end;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all .3s
+    }
+
+    .rm-badge::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse-dot 2s ease-in-out infinite
+    }
+
+    .rm-row:hover .rm-badge {
+      border-color: rgba(0, 229, 255, .3);
+      color: var(--cyan)
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        opacity: .3;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.6)
+      }
+    }
+
+    @media(max-width:760px) {
+      .rm-badge {
+        justify-self: start
+      }
+    }
+
+    /* Principles */
+    .principles {
+      background: transparent
+    }
+
+    .pri-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px
+    }
+
+    @media(max-width:760px) {
+      .pri-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .pr-card {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 22px;
+      transition: all .4s
+    }
+
+    .pr-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 229, 255, .1);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .3)
+    }
+
+    .pr-card .pn {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink3);
+      margin-bottom: 8px;
+      transition: color .3s
+    }
+
+    .pr-card:hover .pn {
+      color: var(--cyan)
+    }
+
+    .pr-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px
+    }
+
+    .pr-card p {
+      color: var(--ink2);
+      font-size: 13px;
+      line-height: 1.55
+    }
+
+    /* CTA */
+    .cta-section {
+      background: transparent;
+      min-height: auto;
+      padding: 60px 0
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(0, 229, 255, .04), rgba(124, 58, 237, .04));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(0, 229, 255, .06), transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(124, 58, 237, .04), transparent 60%);
+      pointer-events: none
+    }
+
+    .cta-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1
+    }
+
+    .cta-inner h2 {
+      font-size: clamp(20px, 2.6vw, 28px);
+      max-width: 440px
+    }
+
+    /* Contact */
+    .contact {
+      background: transparent
+    }
+
+    .c-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start
+    }
+
+    @media(max-width:760px) {
+      .c-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .ci p {
+      color: var(--ink2);
+      font-size: 14px;
+      margin-bottom: 20px
+    }
+
+    .ci .cd {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 13.5px;
+      color: var(--ink2)
+    }
+
+    .ci .cd svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+      color: var(--cyan)
+    }
+
+    .ci .cd a {
+      color: var(--cyan);
+      font-weight: 500
+    }
+
+    .ci .cd a:hover {
+      text-decoration: underline
+    }
+
+    .fc {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 28px;
+      transition: all .3s
+    }
+
+    .fc:hover {
+      border-color: rgba(0, 229, 255, .1);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, .3)
+    }
+
+    .fg {
+      margin-bottom: 16px
+    }
+
+    .fg label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ink3);
+      margin-bottom: 4px
+    }
+
+    .fg input,
+    .fg select,
+    .fg textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--ink);
+      background: rgba(6, 8, 15, .6);
+      transition: all .2s
+    }
+
+    .fg input:focus,
+    .fg select:focus,
+    .fg textarea:focus {
+      outline: none;
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(0, 229, 255, .08);
+      transform: translateY(-1px)
+    }
+
+    .fg textarea {
+      resize: vertical;
+      min-height: 100px
+    }
+
+    .f-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px
+    }
+
+    @media(max-width:480px) {
+      .f-row {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .f-sub {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 4px
+    }
+
+    .f-note {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--ink3)
+    }
+
+    .f-success {
+      display: none;
+      text-align: center;
+      padding: 20px
+    }
+
+    .f-success.show {
+      display: block
+    }
+
+    .f-success svg {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 12px;
+      color: var(--cyan)
+    }
+
+    .f-success h3 {
+      font-size: 17px;
+      margin-bottom: 4px
+    }
+
+    /* Footer */
+    footer {
+      padding: 56px 0 28px;
+      position: relative;
+      z-index: 2
+    }
+
+    footer .fg {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    @media(max-width:760px) {
+      footer .fg {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    footer .fb .logo {
+      margin-bottom: 10px
+    }
+
+    footer .fb p {
+      color: var(--ink3);
+      font-size: 13px;
+      max-width: 240px;
+      line-height: 1.6
+    }
+
+    footer .fc h4 {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ink3);
+      margin-bottom: 12px
+    }
+
+    footer .fc ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    footer .fc a {
+      font-size: 13px;
+      color: var(--ink2);
+      transition: color .2s
+    }
+
+    footer .fc a:hover {
+      color: var(--cyan)
+    }
+
+    footer .fbottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      font-size: 12.5px;
+      color: var(--ink3);
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    /* Scroll reveals */
+    .r {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s cubic-bezier(.16, 1, .3, 1), transform .7s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .r.in {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .rs {
+      opacity: 0;
+      transform: scale(.92);
+      transition: opacity .7s cubic-bezier(.16, 1, .3, 1), transform .7s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .rs.in {
+      opacity: 1;
+      transform: scale(1)
+    }
+
+    .rg>* {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s cubic-bezier(.16, 1, .3, 1), transform .6s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .rg.in>* {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .rg.in>:nth-child(1) {
+      transition-delay: .05s
+    }
+
+    .rg.in>:nth-child(2) {
+      transition-delay: .12s
+    }
+
+    .rg.in>:nth-child(3) {
+      transition-delay: .19s
+    }
+
+    .rg.in>:nth-child(4) {
+      transition-delay: .26s
+    }
+
+    .rg.in>:nth-child(5) {
+      transition-delay: .33s
+    }
+
+    @media(max-width:768px) {
+      header {
+        padding: 0 20px
+      }
+
+      .wrap {
+        padding: 0 20px
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 80px !important
+      }
+
+      .hero .hero-grid {
+        gap: 28px
+      }
+
+      .hero h1 {
+        font-size: clamp(28px, 7.5vw, 34px)
+      }
+
+      .hero .sub {
+        font-size: 15px
+      }
+
+      .hero .stats {
+        gap: 8px
+      }
+
+      .hero .stats span {
+        font-size: 9.5px;
+        padding: 6px 11px
+      }
+
+      .hero .acts {
+        flex-direction: column
+      }
+
+      .hero .acts .btn {
+        width: 100%;
+        justify-content: center
+      }
+
+      .glass-panel {
+        padding: 14px
+      }
+
+      .diagram-svg {
+        max-width: 260px
+      }
+
+      .services .grid {
+        gap: 10px
+      }
+
+      .sc {
+        padding: 20px 16px
+      }
+
+      .brands .b-grid {
+        gap: 10px
+      }
+
+      .bc {
+        padding: 20px 16px
+      }
+
+      .p-grid {
+        gap: 10px
+      }
+
+      .ps {
+        padding: 20px 16px
+      }
+
+      .pri-grid {
+        gap: 10px
+      }
+
+      .pr-card {
+        padding: 20px 16px
+      }
+
+      .cta-box {
+        padding: 28px 20px
+      }
+
+      .fc {
+        padding: 22px
+      }
+
+      footer .fg {
+        gap: 20px
+      }
+
+      footer .fb {
+        grid-column: 1/-1
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="three-canvas"></canvas>
+  <div class="bg-veil"></div>
+
+  <header id="header">
+    <div class="inner">
+      <a href="#top" class="logo"><svg width="20" height="20" viewBox="0 0 100 100">
+          <rect width="100" height="100" rx="24" fill="#000" />
+          <circle cx="50" cy="50" r="15" fill="none" stroke="#00e5ff" stroke-width="6" />
+          <circle cx="50" cy="15" r="7.5" fill="#00e5ff" />
+          <circle cx="85" cy="50" r="7.5" fill="#7c3aed" />
+          <circle cx="50" cy="85" r="7.5" fill="#f59e0b" />
+          <circle cx="15" cy="50" r="7.5" fill="#ec4899" />
+        </svg><span class="brand-word">Online<span class="brand-ee">e</span></span></a>
+      <div class="nav">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#brands">Brands</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div><a href="#contact" class="btn-talk">Talk to us</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="hero" data-section="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot-pulse"></span> Operations &bull; Infrastructure &bull; Automation</div>
+        <h1>Run the product.<br>We'll run <span class="hl">everything else.</span></h1>
+        <p class="sub">Onlinee builds your digital infrastructure, staffs and trains your support team, and takes over
+          the operations that slow down your business — so you focus on what matters.</p>
+        <div class="acts">
+          <a href="#contact" class="btn btn-prime">Book a scoping call</a>
+          <a href="#services" class="btn btn-ghost">See what we run</a>
+        </div>
+        <div class="stats">
+          <span>4 service modules</span>
+          <span>1 accountable team</span>
+          <span>100% trained</span>
+          <span>24/7 coverage</span>
+        </div>
+      </div>
+      <div class="diagram-wrap rs">
+        <div class="glass-panel">
+          <div class="panel-cap">// one platform</div>
+          <svg class="diagram-svg" viewBox="0 0 340 340">
+            <defs>
+              <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#00e5ff" stop-opacity=".25" />
+                <stop offset="100%" stop-color="#00e5ff" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00e5ff" />
+                <stop offset="100%" stop-color="#7c3aed" />
+              </linearGradient>
+              <path id="beamNE" d="M272.5,67.5 L170,170" />
+              <path id="beamNW" d="M67.5,67.5 L170,170" />
+              <path id="beamSW" d="M67.5,272.5 L170,170" />
+              <path id="beamSE" d="M272.5,272.5 L170,170" />
+            </defs>
+
+            <rect x="2" y="2" width="336" height="336" rx="24" fill="rgba(6,8,15,.5)" />
+
+            <g class="radar-rings">
+              <circle cx="170" cy="170" r="130" fill="none" stroke="var(--line)" stroke-width=".4"
+                stroke-dasharray="3 14" />
+              <circle cx="170" cy="170" r="95" fill="none" stroke="var(--line)" stroke-width=".4"
+                stroke-dasharray="2 9" />
+              <circle cx="170" cy="170" r="60" fill="none" stroke="var(--line)" stroke-width=".4"
+                stroke-dasharray="1.5 6" />
+            </g>
+
+            <use href="#beamNE" class="beam" stroke="#00e5ff" />
+            <use href="#beamNW" class="beam" stroke="#7c3aed" />
+            <use href="#beamSW" class="beam" stroke="#f59e0b" />
+            <use href="#beamSE" class="beam" stroke="#ec4899" />
+            <circle r="2.6" fill="#00e5ff">
+              <animateMotion dur="2.2s" repeatCount="indefinite">
+                <mpath href="#beamNE" />
+              </animateMotion>
+            </circle>
+            <circle r="2.6" fill="#7c3aed">
+              <animateMotion dur="2.2s" begin=".55s" repeatCount="indefinite">
+                <mpath href="#beamNW" />
+              </animateMotion>
+            </circle>
+            <circle r="2.6" fill="#f59e0b">
+              <animateMotion dur="2.2s" begin="1.1s" repeatCount="indefinite">
+                <mpath href="#beamSW" />
+              </animateMotion>
+            </circle>
+            <circle r="2.6" fill="#ec4899">
+              <animateMotion dur="2.2s" begin="1.65s" repeatCount="indefinite">
+                <mpath href="#beamSE" />
+              </animateMotion>
+            </circle>
+
+            <circle class="hub-glow" cx="170" cy="170" r="64" fill="url(#hubGlow)" />
+            <circle cx="170" cy="170" r="52" fill="rgba(6,8,15,.9)" stroke="url(#ringGrad)" stroke-width="2" />
+            <circle cx="170" cy="170" r="42" fill="none" stroke="var(--cyan)" stroke-opacity=".12" stroke-width=".6"
+              stroke-dasharray="2 4" />
+
+            <g class="node-bob">
+              <circle cx="170" cy="148" r="13" fill="none" stroke="url(#ringGrad)" stroke-width="1.6" />
+              <circle cx="170" cy="139" r="2.6" fill="#00e5ff" />
+              <circle cx="179" cy="148" r="2.6" fill="#7c3aed" />
+              <circle cx="170" cy="157" r="2.6" fill="#f59e0b" />
+              <circle cx="161" cy="148" r="2.6" fill="#ec4899" />
+            </g>
+            <text x="170" y="182" text-anchor="middle" font-weight="700" font-size="19" letter-spacing="-.01em"
+              fill="url(#ringGrad)">Onlin<tspan fill="url(#ringGrad)">ee</tspan></text>
+            <text x="170" y="195" text-anchor="middle" font-family="var(--font-mono)" font-size="7.5"
+              letter-spacing=".06em" fill="var(--ink2)">ONE PLATFORM</text>
+
+            <g class="node" data-key="infra" data-color="#00e5ff" data-title="Digital Infrastructure"
+              data-desc="Websites, CRM/ERP, and internal tooling — built and maintained.">
+              <g class="node-bob" style="animation-delay:0s">
+                <rect class="chip-box" x="244.5" y="39.5" width="56" height="56" rx="16" stroke="#00e5ff"
+                  color="#00e5ff" />
+                <svg x="258.5" y="53.5" width="28" height="28" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="#00e5ff" stroke-width="1.6" />
+                  <line x1="8" y1="20" x2="16" y2="20" stroke="#00e5ff" stroke-width="1.6" stroke-linecap="round" />
+                  <line x1="12" y1="16" x2="12" y2="20" stroke="#00e5ff" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+              </g>
+              <text class="chip-label" x="272.5" y="109.5" text-anchor="middle" font-size="10"
+                fill="#00e5ff">Infra</text>
+            </g>
+
+            <g class="node" data-key="support" data-color="#7c3aed" data-title="Customer Support"
+              data-desc="Dedicated agents, trained on your product, ready to help.">
+              <g class="node-bob" style="animation-delay:.5s">
+                <rect class="chip-box" x="39.5" y="39.5" width="56" height="56" rx="16" stroke="#7c3aed"
+                  color="#7c3aed" />
+                <svg x="53.5" y="53.5" width="28" height="28" viewBox="0 0 24 24">
+                  <path d="M4,13 v-2 a8,8 0 0 1 16,0 v2" fill="none" stroke="#7c3aed" stroke-width="1.6"
+                    stroke-linecap="round" />
+                  <rect x="3" y="12" width="5" height="6" rx="2" fill="none" stroke="#7c3aed" stroke-width="1.6" />
+                  <rect x="16" y="12" width="5" height="6" rx="2" fill="none" stroke="#7c3aed" stroke-width="1.6" />
+                </svg>
+              </g>
+              <text class="chip-label" x="67.5" y="109.5" text-anchor="middle" font-size="10"
+                fill="#7c3aed">Support</text>
+            </g>
+
+            <g class="node" data-key="ops" data-color="#f59e0b" data-title="Business Operations"
+              data-desc="Processes, SOPs, and vendors — coordinated for you.">
+              <g class="node-bob" style="animation-delay:1s">
+                <rect class="chip-box" x="39.5" y="244.5" width="56" height="56" rx="16" stroke="#f59e0b"
+                  color="#f59e0b" />
+                <svg x="53.5" y="258.5" width="28" height="28" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="3" fill="none" stroke="#f59e0b" stroke-width="1.6" />
+                  <path
+                    d="M12,3 v3 M12,18 v3 M3,12 h3 M18,12 h3 M5.6,5.6 l2.1,2.1 M16.3,16.3 l2.1,2.1 M18.4,5.6 l-2.1,2.1 M7.7,16.3 l-2.1,2.1"
+                    stroke="#f59e0b" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+              </g>
+              <text class="chip-label" x="67.5" y="314.5" text-anchor="middle" font-size="10" fill="#f59e0b">Ops</text>
+            </g>
+
+            <g class="node" data-key="staffing" data-color="#ec4899" data-title="Staffing"
+              data-desc="Talent sourced, screened, and placed fast.">
+              <g class="node-bob" style="animation-delay:1.5s">
+                <rect class="chip-box" x="244.5" y="244.5" width="56" height="56" rx="16" stroke="#ec4899"
+                  color="#ec4899" />
+                <svg x="258.5" y="258.5" width="28" height="28" viewBox="0 0 24 24">
+                  <circle cx="8" cy="7" r="3" fill="none" stroke="#ec4899" stroke-width="1.6" />
+                  <path d="M2,20 c0,-4.5 2.7,-7 6,-7 s6,2.5 6,7" fill="none" stroke="#ec4899" stroke-width="1.6"
+                    stroke-linecap="round" />
+                  <circle cx="17" cy="8.5" r="2.6" fill="none" stroke="#ec4899" stroke-width="1.6" />
+                  <path d="M14.5,20 c0,-3.6 1.4,-5.4 4,-6" fill="none" stroke="#ec4899" stroke-width="1.6"
+                    stroke-linecap="round" />
+                </svg>
+              </g>
+              <text class="chip-label" x="272.5" y="314.5" text-anchor="middle" font-size="10"
+                fill="#ec4899">Staffing</text>
+            </g>
+
+            <text x="170" y="322" text-anchor="middle" font-family="var(--font-mono)" font-size="10" font-weight="600"
+              fill="var(--ink)">One team, every function.</text>
+          </svg>
+          <div class="caption-box" id="cc">
+            <div class="cb-icon" id="cb-icon"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="12" cy="12" r="2.6" fill="currentColor" />
+              </svg></div>
+            <div class="cb-body">
+              <div class="cb-t" id="cb-t">One platform</div>
+              <div class="cb-d" id="cb-d">Four functions, run by one accountable team.</div>
+            </div>
+          </div>
+          <div class="dot-nav" id="dot-nav"></div>
+          <div class="panel-hint">Hover a function &ndash; or let it auto-play</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services" data-section="services">
+    <div class="wrap">
+      <div class="section-head r">
+        <div class="tag">What we run</div>
+        <h2>Four systems. <span class="hl">One team.</span></h2>
+        <p>Instead of managing four vendors, you get one operating partner who owns infrastructure, people, and process.
+        </p>
+      </div>
+      <div class="grid rg">
+        <div class="sc">
+          <div class="snum">01</div>
+          <div class="sv">
+            <svg viewBox="0 0 260 100">
+              <rect x="8" y="8" width="244" height="84" rx="10" fill="#FFFFFF" stroke="#E4E6EA" />
+              <path d="M8,26 h244" stroke="#E4E6EA" />
+              <circle cx="22" cy="17" r="2.4" fill="#E4E6EA" />
+              <circle cx="31" cy="17" r="2.4" fill="#E4E6EA" />
+              <circle cx="40" cy="17" r="2.4" fill="#E4E6EA" />
+              <rect x="24" y="34" width="52" height="48" rx="6" fill="#EEF0FF" />
+              <path d="M30,72 L44,52 L54,62 L70,38" fill="none" stroke="#3B5BFF" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="70" cy="38" r="3" fill="#3B5BFF" />
+              <rect x="92" y="46" width="60" height="9" rx="4.5" fill="#EDEEF2" />
+              <rect x="92" y="62" width="90" height="9" rx="4.5" fill="#EDEEF2" />
+              <rect x="92" y="32" width="40" height="9" rx="4.5" fill="#E6FBF7" />
+              <rect x="170" y="32" width="66" height="48" rx="6" fill="#F4F5F7" stroke="#E4E6EA" />
+              <rect x="180" y="42" width="18" height="28" rx="2" fill="#00B39B" opacity=".85" />
+              <rect x="202" y="52" width="18" height="18" rx="2" fill="#3B5BFF" opacity=".85" />
+            </svg>
+          </div>
+          <h3>Digital Infrastructure</h3>
+          <p>The software backbone your business runs on &mdash; built, integrated, kept online.</p>
+          <ul>
+            <li>Website &amp; web apps</li>
+            <li>CRM / ERP setup &amp; integration</li>
+            <li>Internal tooling &amp; automation</li>
+            <li>Ongoing maintenance</li>
+          </ul>
+          <div class="glow"></div>
+        </div>
+        <div class="sc">
+          <div class="snum">02</div>
+          <div class="sv">
+            <svg viewBox="0 0 260 100">
+              <circle cx="46" cy="50" r="28" fill="#E6FBF7" />
+              <path d="M28,48 v-4 a18,18 0 0 1 36,0 v4" fill="none" stroke="#00B39B" stroke-width="2.4"
+                stroke-linecap="round" />
+              <rect x="24" y="46" width="11" height="14" rx="4" fill="#00B39B" />
+              <rect x="57" y="46" width="11" height="14" rx="4" fill="#00B39B" />
+              <path d="M46,60 v6 a6,6 0 0 0 6,6 h4" fill="none" stroke="#00B39B" stroke-width="2.2"
+                stroke-linecap="round" />
+              <rect x="112" y="14" width="86" height="28" rx="8" fill="#FFFFFF" stroke="#E4E6EA" />
+              <circle cx="128" cy="28" r="4" fill="#3B5BFF" />
+              <rect x="138" y="22" width="48" height="5" rx="2.5" fill="#EDEEF2" />
+              <rect x="138" y="32" width="34" height="5" rx="2.5" fill="#EDEEF2" />
+              <rect x="132" y="54" width="86" height="28" rx="8" fill="#EEF0FF" stroke="#E4E6EA" />
+              <circle cx="148" cy="68" r="4" fill="#00B39B" />
+              <rect x="158" y="62" width="48" height="5" rx="2.5" fill="#FFFFFF" />
+              <rect x="158" y="72" width="30" height="5" rx="2.5" fill="#FFFFFF" />
+            </svg>
+          </div>
+          <h3>Customer Support</h3>
+          <p>Professionals hired and trained on your product, deployed as your frontline.</p>
+          <ul>
+            <li>Hiring &amp; product training</li>
+            <li>Dedicated support agents</li>
+            <li>Chat, ticket &amp; call coverage</li>
+            <li>Weekly performance reporting</li>
+          </ul>
+          <div class="glow" style="background:radial-gradient(circle,var(--violet),transparent 70%)"></div>
+        </div>
+        <div class="sc">
+          <div class="snum">03</div>
+          <div class="sv">
+            <svg viewBox="0 0 260 100">
+              <rect x="10" y="36" width="64" height="28" rx="8" fill="#EEF0FF" stroke="#3B5BFF" /><text x="42" y="54"
+                text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#3B5BFF">intake</text>
+              <path d="M74,50 h26" stroke="#C7CCDA" stroke-width="1.6" />
+              <rect x="100" y="14" width="64" height="28" rx="8" fill="#F4F5F7" stroke="#E4E6EA" /><text x="132" y="32"
+                text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4A4F5C">process</text>
+              <rect x="100" y="60" width="64" height="28" rx="8" fill="#F4F5F7" stroke="#E4E6EA" /><text x="132" y="78"
+                text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4A4F5C">review</text>
+              <path d="M132,42 v10" stroke="#C7CCDA" stroke-width="1.6" />
+              <path d="M132,60 v-8" stroke="#C7CCDA" stroke-width="1.6" />
+              <path d="M164,50 h26" stroke="#C7CCDA" stroke-width="1.6" />
+              <rect x="190" y="36" width="60" height="28" rx="8" fill="#E6FBF7" stroke="#00B39B" /><text x="220" y="54"
+                text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#00806E">done</text>
+            </svg>
+          </div>
+          <h3>Business Operations</h3>
+          <p>The non-core work that still has to happen &mdash; run to your standards, off your plate.</p>
+          <ul>
+            <li>Process &amp; vendor coordination</li>
+            <li>SOPs &amp; documentation</li>
+            <li>Operational reporting</li>
+            <li>Day-to-day ops management</li>
+          </ul>
+          <div class="glow"></div>
+        </div>
+        <div class="sc">
+          <div class="snum">04</div>
+          <div class="sv">
+            <svg viewBox="0 0 260 100">
+              <circle cx="130" cy="22" r="12" fill="#F4F5F7" stroke="#C7CCDA" stroke-dasharray="2 3" /><text x="130"
+                y="26" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#6B7280">pool</text>
+              <path d="M120,32 L70,54" stroke="#C7CCDA" stroke-width="1.4" />
+              <path d="M140,32 L190,54" stroke="#C7CCDA" stroke-width="1.4" />
+              <path d="M130,34 L130,54" stroke="#C7CCDA" stroke-width="1.4" />
+              <g>
+                <circle cx="60" cy="66" r="16" fill="#E6FBF7" stroke="#00B39B" />
+                <circle cx="60" cy="60" r="5" fill="none" stroke="#00B39B" stroke-width="1.8" />
+                <path d="M50,74 c0,-6 4.5,-9 10,-9 s10,3 10,9" fill="none" stroke="#00B39B" stroke-width="1.8"
+                  stroke-linecap="round" />
+              </g>
+              <g>
+                <circle cx="130" cy="74" r="16" fill="#EEF0FF" stroke="#3B5BFF" />
+                <circle cx="130" cy="68" r="5" fill="none" stroke="#3B5BFF" stroke-width="1.8" />
+                <path d="M120,82 c0,-6 4.5,-9 10,-9 s10,3 10,9" fill="none" stroke="#3B5BFF" stroke-width="1.8"
+                  stroke-linecap="round" />
+              </g>
+              <g>
+                <circle cx="200" cy="66" r="16" fill="#E6FBF7" stroke="#00B39B" />
+                <circle cx="200" cy="60" r="5" fill="none" stroke="#00B39B" stroke-width="1.8" />
+                <path d="M190,74 c0,-6 4.5,-9 10,-9 s10,3 10,9" fill="none" stroke="#00B39B" stroke-width="1.8"
+                  stroke-linecap="round" />
+              </g>
+            </svg>
+          </div>
+          <h3>Staffing</h3>
+          <p>Talent sourced and placed for roles you need filled now, not next quarter.</p>
+          <ul>
+            <li>Role scoping</li>
+            <li>Candidate sourcing</li>
+            <li>Screening &amp; vetting</li>
+            <li>Fast placement</li>
+          </ul>
+          <div class="glow" style="background:radial-gradient(circle,var(--amber),transparent 70%)"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process" data-section="process">
+    <div class="wrap">
+      <div class="section-head r">
+        <div class="tag">How it works</div>
+        <h2>Three steps. <span class="hl">First call to running system.</span></h2>
+      </div>
+      <div class="p-grid rg">
+        <div class="ps">
+          <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg></div>
+          <div class="pt">01 / Scope</div>
+          <h3>Map what's needed</h3>
+          <p>We identify which systems, roles, and processes to take off your plate first — no bundled packages.</p>
+        </div>
+        <div class="ps">
+          <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg></div>
+          <div class="pt">02 / Deploy</div>
+          <h3>Build and staff it</h3>
+          <p>Infrastructure gets built, people get hired and trained on your product, processes documented.</p>
+        </div>
+        <div class="ps">
+          <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg></div>
+          <div class="pt">03 / Run</div>
+          <h3>Operate and review</h3>
+          <p>Onlinee runs day-to-day execution. You get regular reporting and stay in control.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brands" id="brands" data-section="brands">
+    <div class="wrap">
+      <div class="section-head r">
+        <div class="tag">Trusted by</div>
+        <h2>Brands we've <span class="hl">built and managed.</span></h2>
+        <p>From digital infrastructure to full business operations.</p>
+      </div>
+      <div class="b-grid rg">
+        <div class="bc" style="--c:var(--cyan)">
+          <div class="bi i1">I</div>
+          <div class="br">Digital Infrastructure &amp; Operations</div>
+          <h3>IClub</h3>
+          <p>Built and managed overall digital infrastructure and platform. Majorly dealing with CS support and business
+            operations for seamless customer experiences and operational efficiency.</p><a class="b-link"
+            href="https://share.google/GKipYllFBWMppc08T" target="_blank" rel="noopener noreferrer">Visit &#8599;</a>
+          <div class="bbg"></div>
+        </div>
+        <div class="bc" style="--c:var(--violet)">
+          <div class="bi i2">F</div>
+          <div class="br" style="color:var(--violet)">Full Business Operations</div>
+          <h3>Fonotech</h3>
+          <p>Built and managed digital infrastructure, CS support, business operations, marketing strategies, digital
+            presence expansion, supply chain management, and cross-team collaboration.</p><a class="b-link"
+            href="https://share.google/Zyxqw31D3rTbDsgju" target="_blank" rel="noopener noreferrer">Visit &#8599;</a>
+          <div class="bbg"></div>
+        </div>
+        <div class="bc" style="--c:var(--amber)">
+          <div class="bi i3">Fx</div>
+          <div class="br" style="color:var(--amber)">Marketing &amp; Content Strategy</div>
+          <h3>Fixkart</h3>
+          <p>Built and managed marketing strategies and platforms. Trending hooks, content generation, video making,
+            ads, banners, posters, editing and content creation for user visibility.</p><a class="b-link"
+            href="https://share.google/oM0lPkGzACCKf7NP1" target="_blank" rel="noopener noreferrer">Visit &#8599;</a>
+          <div class="bbg"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rm" id="roadmap" data-section="roadmap">
+    <div class="wrap">
+      <div class="section-head r">
+        <div class="tag">In development</div>
+        <h2>What we're <span class="hl">building next.</span></h2>
+        <p>Service lines in scoping and early pilots.</p>
+      </div>
+      <div class="rm-list rg">
+        <div class="rm-row">
+          <h3>SOC Operations</h3>
+          <p>Security operations center for continuous monitoring without an in-house team.</p><span class="rm-badge">In
+            development</span>
+        </div>
+        <div class="rm-row">
+          <h3>AI Data &amp; Ethics Monitoring</h3>
+          <p>Oversight for AI-generated data — flagging harmful outputs before they become problems.</p><span
+            class="rm-badge">Early stage</span>
+        </div>
+        <div class="rm-row">
+          <h3>Executive &amp; Business Security</h3>
+          <p>Vetted personnel for on-demand or permanent protection of leaders and premises.</p><span
+            class="rm-badge">In development</span>
+        </div>
+        <div class="rm-row">
+          <h3>Legacy Business Operations</h3>
+          <p>Modernized ops for established, family-run businesses on traditional systems.</p><span
+            class="rm-badge">Coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="principles" data-section="principles">
+    <div class="wrap">
+      <div class="section-head r">
+        <div class="tag">Why Onlinee</div>
+        <h2>Built around <span class="hl">accountability,</span> not headcount.</h2>
+      </div>
+      <div class="pri-grid rg">
+        <div class="pr-card">
+          <div class="pn">01</div>
+          <h3>One point of ownership</h3>
+          <p>One team accountable for infrastructure, people, and process — not four vendors pointing at each other.</p>
+        </div>
+        <div class="pr-card">
+          <div class="pn">02</div>
+          <h3>Trained on your product</h3>
+          <p>Support and ops staff hired and trained specifically for your business, not shared across accounts.</p>
+        </div>
+        <div class="pr-card">
+          <div class="pn">03</div>
+          <h3>Scoped, not bundled</h3>
+          <p>You take what you need now. Nothing is a fixed package you have to grow into.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" data-section="cta">
+    <div class="wrap">
+      <div class="cta-box rs">
+        <div class="cta-inner">
+          <h2>Tell us what's slowing your team down.</h2>
+          <div class="cta-actions"><a href="#contact" class="btn btn-prime">Book a scoping call</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" data-section="contact">
+    <div class="wrap">
+      <div class="section-head r">
+        <div class="tag">Contact</div>
+        <h2>Let's <span class="hl">scope your first system.</span></h2>
+        <p>Tell us what you're managing — we'll tell you what we'd take off your plate first.</p>
+      </div>
+      <div class="c-grid r">
+        <div class="ci">
+          <p>Prefer email? Reach us directly or fill the form.</p>
+          <div class="cd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg><a href="mailto:hello@onlinee.in">hello@onlinee.in</a></div>
+          <div class="cd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg><span>Bangalore, Karnataka</span></div>
+          <div class="cd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg><span>+91 9741367860</span></div>
+        </div>
+        <div class="fc">
+          <form id="cf">
+            <div class="f-row">
+              <div class="fg"><label>Name</label><input type="text" id="fn" name="name" required
+                  placeholder="Your name"></div>
+              <div class="fg"><label>Email</label><input type="email" id="fe" name="email" required
+                  placeholder="you@company.com"></div>
+            </div>
+            <div class="fg"><label>Company</label><input type="text" name="company" placeholder="Company name"></div>
+            <div class="fg"><label>Contact number</label><input type="tel" name="phone" placeholder="+91 98765 43210">
+            </div>
+            <div class="fg"><label>I'm interested in</label><select name="interest">
+                <option value="">Select</option>
+                <option value="infrastructure">Digital Infrastructure</option>
+                <option value="support">Customer Support</option>
+                <option value="operations">Business Operations</option>
+                <option value="staffing">Staffing</option>
+                <option value="multiple">Multiple/Not sure</option>
+              </select></div>
+            <div class="fg"><label>Message</label><textarea name="message" required
+                placeholder="Tell us about your current operations..."></textarea></div>
+            <div class="f-sub"><button type="submit" class="btn btn-prime">Send message</button><span class="f-note">Or
+                call +91 9741367860</span></div>
+          </form>
+          <div class="f-success" id="fs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <h3>Message sent</h3>
+            <p>We'll get back within one business day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="fg">
+        <div class="fb"><a href="#top" class="logo"><svg width="18" height="18" viewBox="0 0 100 100">
+              <rect width="100" height="100" rx="24" fill="#000" />
+              <circle cx="50" cy="50" r="15" fill="none" stroke="#00e5ff" stroke-width="6" />
+              <circle cx="50" cy="15" r="7.5" fill="#00e5ff" />
+              <circle cx="85" cy="50" r="7.5" fill="#7c3aed" />
+              <circle cx="50" cy="85" r="7.5" fill="#f59e0b" />
+              <circle cx="15" cy="50" r="7.5" fill="#ec4899" />
+            </svg><span class="brand-word">Onlin<span class="brand-ee">ee</span></span></a>
+          <p>Operations infrastructure for growing businesses.</p>
+        </div>
+        <div class="fc">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Digital Infrastructure</a></li>
+            <li><a href="#services">Customer Support</a></li>
+            <li><a href="#services">Business Operations</a></li>
+            <li><a href="#services">Staffing</a></li>
+          </ul>
+        </div>
+        <div class="fc">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#brands">Brands</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="fc">
+          <h4>Based in</h4>
+          <ul>
+            <li>Bangalore, India</li>
+            <li><a href="mailto:hello@onlinee.in">hello@onlinee.in</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="fbottom"><span>&copy; 2026 Onlinee</span><span>Bangalore, Karnataka</span></div>
+    </div>
+  </footer>
+
+  <!-- Three.js node-network / systems-graph scene -->
+  <script type="module">
+    import * as THREE from 'three';
+
+    const c = document.getElementById('three-canvas');
+    if (!c || window.matchMedia('(prefers-reduced-motion:reduce)').matches) { if (c) c.remove(); }
+    else {
+      const r = new THREE.WebGLRenderer({ canvas: c, alpha: true, antialias: true });
+      r.setSize(window.innerWidth, window.innerHeight);
+      r.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      const s = new THREE.Scene();
+      const cam = new THREE.PerspectiveCamera(48, window.innerWidth / window.innerHeight, 1, 2000);
+      cam.position.set(0, 20, 220);
+
+      const PALETTE = [0x00e5ff, 0x7c3aed, 0xf59e0b, 0xec4899]; // cyan, violet, amber, pink — matches site vars
+
+      // Network group (gentle whole-scene tilt/rotation, reacts to scroll)
+      const net = new THREE.Group();
+      net.rotation.x = 0.15;
+      s.add(net);
+
+      function makeGlowTexture(hex) {
+        const cv = document.createElement('canvas');
+        cv.width = 128; cv.height = 128;
+        const ctx = cv.getContext('2d');
+        const col = new THREE.Color(hex);
+        const R = Math.floor(col.r * 255), G = Math.floor(col.g * 255), B = Math.floor(col.b * 255);
+        const g = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+        g.addColorStop(0, `rgba(${R},${G},${B},1)`);
+        g.addColorStop(0.3, `rgba(${R},${G},${B},0.35)`);
+        g.addColorStop(1, `rgba(${R},${G},${B},0)`);
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, 128, 128);
+        return new THREE.CanvasTexture(cv);
+      }
+
+      // --- Central hub (Onlinee core) ---
+      const hubGeo = new THREE.IcosahedronGeometry(6, 1);
+      const hubMat = new THREE.MeshBasicMaterial({ color: 0x00e5ff, wireframe: true, transparent: true, opacity: 0.85 });
+      const hub = new THREE.Mesh(hubGeo, hubMat);
+      net.add(hub);
+
+      const hubGlow = new THREE.Sprite(new THREE.SpriteMaterial({ map: makeGlowTexture(0x00e5ff), blending: THREE.AdditiveBlending, transparent: true, opacity: 0.6, depthWrite: false }));
+      hubGlow.scale.set(40, 40, 1);
+      net.add(hubGlow);
+
+      // --- Four module nodes: infra / support / ops / staffing ---
+      const moduleDefs = [
+        { angle: 0.6, color: 0x00e5ff, r: 55, y: 10 },
+        { angle: 2.2, color: 0x7c3aed, r: 62, y: -14 },
+        { angle: 3.7, color: 0xf59e0b, r: 50, y: 6 },
+        { angle: 5.1, color: 0xec4899, r: 58, y: -8 },
+      ];
+      const modules = moduleDefs.map((m, i) => {
+        const mesh = new THREE.Mesh(
+          new THREE.OctahedronGeometry(3.4, 0),
+          new THREE.MeshBasicMaterial({ color: m.color, transparent: true, opacity: 0.9 })
+        );
+        net.add(mesh);
+
+        const glow = new THREE.Sprite(new THREE.SpriteMaterial({ map: makeGlowTexture(m.color), blending: THREE.AdditiveBlending, transparent: true, opacity: 0.45, depthWrite: false }));
+        glow.scale.set(22, 22, 1);
+        mesh.add(glow);
+
+        const spokeGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, 0)]);
+        const spoke = new THREE.Line(spokeGeo, new THREE.LineBasicMaterial({ color: m.color, transparent: true, opacity: 0.28 }));
+        net.add(spoke);
+
+        return { mesh, spoke, def: m, phase: i * 1.3 };
+      });
+
+      // --- Ambient node field (the wider "ops network") ---
+      const AMBIENT_COUNT = 34;
+      const ambient = [];
+      for (let i = 0; i < AMBIENT_COUNT; i++) {
+        const color = PALETTE[i % PALETTE.length];
+        const mesh = new THREE.Mesh(
+          new THREE.SphereGeometry(0.9 + Math.random() * 0.6, 8, 8),
+          new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.75 })
+        );
+        const radius = 70 + Math.random() * 90;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(Math.random() * 2 - 1);
+        mesh.position.set(
+          radius * Math.sin(phi) * Math.cos(theta) * 0.9,
+          (Math.random() - 0.5) * 90,
+          radius * Math.sin(phi) * Math.sin(theta) * 0.9
+        );
+        net.add(mesh);
+        ambient.push({ mesh, color, driftPhase: Math.random() * Math.PI * 2 });
+      }
+
+      // Ambient connection lines — rebuilt from a fixed-size pool each update
+      const MAX_CONN = 90;
+      const connPositions = new Float32Array(MAX_CONN * 2 * 3);
+      const connColors = new Float32Array(MAX_CONN * 2 * 3);
+      const connGeo = new THREE.BufferGeometry();
+      connGeo.setAttribute('position', new THREE.BufferAttribute(connPositions, 3));
+      connGeo.setAttribute('color', new THREE.BufferAttribute(connColors, 3));
+      connGeo.setDrawRange(0, 0);
+      const connLines = new THREE.LineSegments(connGeo, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false }));
+      net.add(connLines);
+
+      const CONNECT_DIST = 55;
+      const tmpColor = new THREE.Color();
+      function updateConnections() {
+        let idx = 0;
+        for (let i = 0; i < ambient.length && idx < MAX_CONN; i++) {
+          for (let j = i + 1; j < ambient.length && idx < MAX_CONN; j++) {
+            const p1 = ambient[i].mesh.position, p2 = ambient[j].mesh.position;
+            const d = p1.distanceTo(p2);
+            if (d < CONNECT_DIST) {
+              const o = idx * 6;
+              connPositions[o] = p1.x; connPositions[o + 1] = p1.y; connPositions[o + 2] = p1.z;
+              connPositions[o + 3] = p2.x; connPositions[o + 4] = p2.y; connPositions[o + 5] = p2.z;
+              const fade = 1 - d / CONNECT_DIST;
+              tmpColor.set(ambient[i].color).lerp(new THREE.Color(ambient[j].color), 0.5).multiplyScalar(fade);
+              connColors[o] = tmpColor.r; connColors[o + 1] = tmpColor.g; connColors[o + 2] = tmpColor.b;
+              connColors[o + 3] = tmpColor.r; connColors[o + 4] = tmpColor.g; connColors[o + 5] = tmpColor.b;
+              idx++;
+            }
+          }
+        }
+        connGeo.attributes.position.needsUpdate = true;
+        connGeo.attributes.color.needsUpdate = true;
+        connGeo.setDrawRange(0, idx * 2);
+      }
+
+      // --- Traveling pulses from hub out to each module (data/task flow) ---
+      const pulses = [];
+      function spawnPulse() {
+        const target = modules[Math.floor(Math.random() * modules.length)];
+        const mesh = new THREE.Mesh(
+          new THREE.SphereGeometry(1.3, 10, 10),
+          new THREE.MeshBasicMaterial({ color: target.def.color, transparent: true, opacity: 1 })
+        );
+        net.add(mesh);
+        pulses.push({ mesh, target, t: 0, dur: 1.4 + Math.random() * 0.4 });
+      }
+      let pulseTimer = 0;
+      const originVec = new THREE.Vector3(0, 0, 0);
+
+      // --- Galaxy dust: soft spiral particle field behind the network, tinted with brand colors ---
+      const dustCount = 3200;
+      const dustPos = new Float32Array(dustCount * 3);
+      const dustCol = new Float32Array(dustCount * 3);
+      const dustSiz = new Float32Array(dustCount);
+      const paletteColors = PALETTE.map(hex => new THREE.Color(hex));
+      const white = new THREE.Color(0xffffff);
+      const dustColor = new THREE.Color();
+      for (let i = 0; i < dustCount; i++) {
+        const rad = Math.pow(Math.random(), 0.8) * 170 + 20;
+        const arm = Math.floor(Math.random() * 3);
+        const theta = rad * 0.045 + (arm / 3) * Math.PI * 2 + (Math.random() - 0.5) * 0.9;
+        const spread = 3 + rad * 0.05;
+        dustPos[i * 3] = rad * Math.cos(theta) + (Math.random() - 0.5) * spread;
+        dustPos[i * 3 + 1] = (Math.random() - 0.5) * (4 + rad * 0.06);
+        dustPos[i * 3 + 2] = rad * Math.sin(theta) + (Math.random() - 0.5) * spread;
+
+        const near = 1 - rad / 190;
+        if (Math.random() < 0.55) {
+          dustColor.copy(white).lerp(paletteColors[i % paletteColors.length], 0.25 + 0.3 * near);
+        } else {
+          dustColor.copy(paletteColors[i % paletteColors.length]).lerp(white, 0.15);
+        }
+        dustCol[i * 3] = dustColor.r; dustCol[i * 3 + 1] = dustColor.g; dustCol[i * 3 + 2] = dustColor.b;
+        dustSiz[i] = 0.4 + near * 1.3 + Math.random() * 0.5;
+      }
+      const dustGeo = new THREE.BufferGeometry();
+      dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
+      dustGeo.setAttribute('color', new THREE.BufferAttribute(dustCol, 3));
+      dustGeo.setAttribute('size', new THREE.BufferAttribute(dustSiz, 1));
+      const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({
+        size: 1.0, transparent: true, opacity: 0.42, blending: THREE.AdditiveBlending, sizeAttenuation: true, vertexColors: true, depthWrite: false,
+      }));
+      net.add(dust);
+
+      // --- Layered starfield (near + far, for parallax depth) ---
+      function makeStarLayer(count, radiusMin, radiusRange, size, opacity, color) {
+        const pos = new Float32Array(count * 3);
+        for (let i = 0; i < count; i++) {
+          const rad = radiusMin + Math.random() * radiusRange;
+          const th = Math.random() * Math.PI * 2;
+          const ph = Math.acos(2 * Math.random() - 1);
+          pos[i * 3] = rad * Math.sin(ph) * Math.cos(th);
+          pos[i * 3 + 1] = rad * Math.cos(ph);
+          pos[i * 3 + 2] = rad * Math.sin(ph) * Math.sin(th);
+        }
+        const geo = new THREE.BufferGeometry();
+        geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+        const mat = new THREE.PointsMaterial({ color, size, transparent: true, opacity, sizeAttenuation: true, depthWrite: false });
+        return new THREE.Points(geo, mat);
+      }
+      const starsFar = makeStarLayer(1800, 400, 500, 0.9, 0.42, 0xc7ceec);
+      const starsNear = makeStarLayer(500, 220, 160, 1.5, 0.58, 0xffffff);
+      s.add(starsFar);
+      s.add(starsNear);
+
+      // Scroll & mouse
+      let smoothScroll = 0, targetScroll = 0;
+      function updateScroll() {
+        targetScroll = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+      }
+      window.addEventListener('scroll', updateScroll, { passive: true });
+      updateScroll();
+
+      let mouseX = 0, mouseY = 0;
+      document.addEventListener('mousemove', e => {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+      }, { passive: true });
+
+      let connTimer = 0;
+      function animate() {
+        smoothScroll += (targetScroll - smoothScroll) * 0.06;
+        const t = Date.now() * 0.001;
+        const dt = 0.016;
+
+        // Whole network: slow spin, scroll adds gentle tilt
+        net.rotation.y += 0.0009 + smoothScroll * 0.003;
+        net.rotation.x = 0.15 + smoothScroll * 0.05;
+
+        // Hub: spin + pulse
+        hub.rotation.y += 0.003;
+        hub.rotation.x += 0.0015;
+        const hubPulse = 1 + 0.06 * Math.sin(t * 1.1);
+        hub.scale.setScalar(hubPulse);
+        hubGlow.material.opacity = 0.45 + 0.15 * Math.sin(t * 1.1);
+
+        // Modules: slow orbit + bob, keep spokes attached
+        modules.forEach(m => {
+          const a = m.def.angle + t * 0.045;
+          const x = Math.cos(a) * m.def.r;
+          const z = Math.sin(a) * m.def.r;
+          const y = m.def.y + Math.sin(t * 0.6 + m.phase) * 4;
+          m.mesh.position.set(x, y, z);
+          m.mesh.rotation.y += 0.01;
+          m.mesh.rotation.x += 0.006;
+          const pos = m.spoke.geometry.attributes.position;
+          pos.setXYZ(0, 0, 0, 0);
+          pos.setXYZ(1, x, y, z);
+          pos.needsUpdate = true;
+          m.spoke.material.opacity = 0.18 + 0.12 * Math.sin(t * 0.8 + m.phase);
+        });
+
+        // Ambient nodes: bounded slow wander
+        ambient.forEach(a => {
+          a.driftPhase += 0.004;
+          a.mesh.position.x += Math.sin(a.driftPhase) * 0.03;
+          a.mesh.position.y += Math.cos(a.driftPhase * 0.7) * 0.02;
+          a.mesh.position.z += Math.sin(a.driftPhase * 1.3) * 0.03;
+        });
+
+        // Recompute ambient connections at a lower rate for performance
+        connTimer += dt;
+        if (connTimer > 0.07) { updateConnections(); connTimer = 0; }
+
+        // Spawn a new pulse periodically
+        pulseTimer += dt;
+        if (pulseTimer > 1.6) { spawnPulse(); pulseTimer = 0; }
+
+        // Advance pulses hub -> module, fading out on arrival
+        for (let i = pulses.length - 1; i >= 0; i--) {
+          const p = pulses[i];
+          p.t += dt / p.dur;
+          if (p.t >= 1) { net.remove(p.mesh); pulses.splice(i, 1); continue; }
+          p.mesh.position.lerpVectors(originVec, p.target.mesh.position, p.t);
+          p.mesh.material.opacity = 1 - Math.pow(p.t, 3);
+        }
+
+        // Starfield: near-imperceptible counter-rotating drift for parallax depth
+        starsFar.rotation.y += 0.00005;
+        starsNear.rotation.y -= 0.00003;
+
+        // Camera: mouse parallax + scroll dolly
+        cam.position.x += (mouseX * 22 - cam.position.x) * 0.02;
+        cam.position.y += (-mouseY * 16 - cam.position.y + 20) * 0.02;
+        cam.position.z = 220 + smoothScroll * 90;
+        cam.lookAt(0, 0, 0);
+
+        r.render(s, cam);
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+
+      window.addEventListener('resize', () => {
+        cam.aspect = window.innerWidth / window.innerHeight;
+        cam.updateProjectionMatrix();
+        r.setSize(window.innerWidth, window.innerHeight);
+      });
+    }
+  </script>
+
+  <script>
+    // Diagram interaction
+    (function () {
+      const nodes = Array.from(document.querySelectorAll('.diagram-svg .node'));
+      const t = document.getElementById('cb-t'), d = document.getElementById('cb-d'), cap = document.getElementById('cc'), bi = document.getElementById('cb-icon'), dw = document.getElementById('dot-nav');
+      if (!nodes.length) return;
+      const ord = ['infra', 'support', 'ops', 'staffing'];
+      const defT = 'One platform', defD = 'Four functions, run by one accountable team.';
+      const ico = { core: '<circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12,3 v4 M12,17 v4 M3,12 h4 M17,12 h4 M5.6,5.6 l2.8,2.8 M15.6,15.6 l2.8,2.8 M18.4,5.6 l-2.8,2.8 M8.4,15.6 l-2.8,2.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>', infra: '<rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="8" y1="20" x2="16" y2="20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="12" y1="16" x2="12" y2="20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>', support: '<path d="M4,13 v-2 a8,8 0 0 1 16,0 v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3" y="12" width="5" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="16" y="12" width="5" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/>', ops: '<circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12,3 v3 M12,18 v3 M3,12 h3 M18,12 h3 M5.6,5.6 l2.1,2.1 M16.3,16.3 l2.1,2.1 M18.4,5.6 l-2.1,2.1 M7.7,16.3 l-2.1,2.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>', staffing: '<circle cx="8" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2,20 c0,-4.5 2.7,-7 6,-7 s6,2.5 6,7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="17" cy="8.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14.5,20 c0,-3.6 1.4,-5.4 4,-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>' };
+      const dots = ord.map((k, i) => { const b = document.createElement('button'); b.type = 'button'; b.role = 'tab'; b.setAttribute('aria-label', 'Show ' + k); b.addEventListener('click', () => sel(k, true)); dw.appendChild(b); return b; });
+      function pb(k) { bi.innerHTML = '<svg viewBox="0 0 24 24">' + ico[k] + '</svg>'; }
+      function sel(key, u) {
+        nodes.forEach(n => n.classList.remove('active'));
+        if (!key) { t.textContent = defT; d.textContent = defD; cap.style.setProperty('--cc', 'var(--cyan)'); pb('core'); dots.forEach(d => d.classList.remove('on')); }
+        else { const n = nodes.find(n => n.getAttribute('data-key') === key); if (!n) return; n.classList.add('active'); t.textContent = n.getAttribute('data-title'); d.textContent = n.getAttribute('data-desc'); cap.style.setProperty('--cc', n.getAttribute('data-color')); pb(key); dots.forEach((d, i) => d.classList.toggle('on', ord[i] === key)); }
+        if (u) pause();
+      }
+      let ai = 0, aid = null, rid = null;
+      function start() { stop(); aid = setInterval(() => { sel(ord[ai], false); ai = (ai + 1) % ord.length; }, 3800); }
+      function stop() { if (aid) { clearInterval(aid); aid = null; } }
+      function pause() { stop(); if (rid) clearTimeout(rid); rid = setTimeout(start, 6000); }
+      nodes.forEach(n => { const k = n.getAttribute('data-key'); n.addEventListener('click', () => sel(k, true)); n.addEventListener('focus', () => sel(k, true)); });
+      sel(null, false); start();
+    })();
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }); }, { threshold: .08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.r,.rs,.rg').forEach(el => obs.observe(el));
+
+    // Header scroll
+    const hd = document.getElementById('header');
+    if (hd) { let tk = false; window.addEventListener('scroll', () => { if (!tk) { requestAnimationFrame(() => { hd.classList.toggle('scrolled', window.scrollY > 20); tk = false; }); tk = true; } }, { passive: true }); }
+
+    // Form
+    const form = document.getElementById('cf'), fs = document.getElementById('fs');
+    if (form) { form.addEventListener('submit', async (e) => { e.preventDefault(); const btn = form.querySelector('button[type="submit"]'), og = btn.textContent; btn.disabled = true; btn.textContent = 'Sending...'; try { const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } }); if (res.ok) { form.style.display = 'none'; fs.classList.add('show'); } else { alert('Something went wrong — email us at hello@onlinee.in'); } } catch { alert('Something went wrong — email us at hello@onlinee.in'); } finally { btn.disabled = false; btn.textContent = og; } }, false); }
+  </script>
+</body>
+
+</html>
