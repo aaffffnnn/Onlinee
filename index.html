@@ -2637,7 +2637,7 @@
 
     // Form
     const form = document.getElementById('cf'), fs = document.getElementById('fs');
-    if (form) { form.addEventListener('submit', function (e) { e.preventDefault(); const btn = form.querySelector('button[type="submit"]'), og = btn.textContent; btn.disabled = true; btn.textContent = 'Sending...'; emailjs.sendForm('service_mdxp6re', 'template_8w04dua', form).then(function () { form.style.display = 'none'; fs.classList.add('show'); }, function () { alert('Something went wrong — email us at info@onlinee.in'); }).finally(function () { btn.disabled = false; btn.textContent = og; }); }, false); }
+    if (form) { form.addEventListener('submit', function (e) { e.preventDefault(); const btn = form.querySelector('button[type="submit"]'), og = btn.textContent; btn.disabled = true; btn.textContent = 'Sending...'; emailjs.sendForm('service_mdxp6re', 'template_3h5nfsq', form).then(function () { form.style.display = 'none'; fs.classList.add('show'); }, function () { alert('Something went wrong — email us at info@onlinee.in'); }).finally(function () { btn.disabled = false; btn.textContent = og; }); }, false); }
   </script>
 </body>
 
